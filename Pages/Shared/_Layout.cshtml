@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Event_application</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="header navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="zealand-logo">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/Zealand_logo.png" alt="zealand-logo" style="width: 100%" />
+                </a>
+            </div>
+            <div class="bar">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Arrangement</a>
+            </div>
+            <div class="bar">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">VIP-lounge</a>
+            </div>
+            <div class="bar">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Parkeringspladser</a>
+            </div>
+            <div class="bar">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Transport</a>
+            </div>
+            <div class="user-logo">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/Sample_User_Icon.png" alt="user-logo" style="width: 100%"/>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+        
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
