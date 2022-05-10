@@ -22,5 +22,7 @@ namespace Event_application.Services
 
         T Delete(int id);
 
+        //test
+
     }
 }
