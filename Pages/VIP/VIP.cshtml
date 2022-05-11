@@ -1,0 +1,153 @@
+﻿@page
+@model Event_application.Pages.VIP.VIPModel
+@{
+}
+
+<h1>Almindelig menu </h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Navn
+        </th>
+        <th>
+            Beskrivelse
+        </th>
+        <th>
+            Pris 
+        </th>
+        <th>
+            Billede
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.VeganskgMenu)
+    {
+        <tr>
+            <td>
+                @item.Navn
+            </td>
+            <td>
+                @item.Beskrivelse
+            </td>
+            <td>
+                @item.Pris
+            </td>
+            <td>
+                @item.Billede
+            </td>
+            <td>
+                <img src="~/Images/@item.Billede" width="60" height="70">
+            </td>
+            <td>
+                <p>
+                </p>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<h1>Vegansk menu</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Navn
+        </th>
+        <th>
+            Beskrivelse
+        </th>
+        <th>
+            Pris
+        </th>
+        <th>
+            Billede
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.VeganskgMenu)
+    {
+        <tr>
+            <td>
+                @item.Navn
+            </td>
+            <td>
+                @item.Beskrivelse 
+            </td>
+            <td>
+                @item.Pris
+            </td>
+            <td>
+                @item.Billede
+            </td>
+            <td>
+                <img src="~/Images/@item.Billede" width="60" height="70">
+            </td>
+            <td>
+                <p>
+                   
+                </p>
+            </td>
+        </tr>
+    }
+    </tbody>
+    
+</table>
+
+<h1>Champagne</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Navn
+        </th>
+        <th>
+            Beskrivelse
+        </th>
+        <th>
+            Vol
+        </th>
+        <th>
+            Pris
+        </th>
+        <th>
+            Billede
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ChampagnegMenu)
+    {
+        <tr>
+            <td>
+                @item.Navn
+            </td>
+            <td>
+                @item.Beskrivelse
+            </td>
+            <td>
+                @item.Champagne1
+            </td>
+            <td>
+                @item.Pris
+            </td>
+            <td>
+                @item.Billede
+            </td>
+            <td>
+                <img src="~/Images/@item.Billede" width="60" height="70">
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+    
+</table>
+
+

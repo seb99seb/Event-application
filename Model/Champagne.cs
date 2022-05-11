@@ -10,6 +10,7 @@ namespace Event_application.Model
         /*
         * Instansfelter 
         */
+        private int _id;
         private string _navn;
         private string _beskrivelse;
         private string _vol;
@@ -20,8 +21,9 @@ namespace Event_application.Model
         /*
          * Konstruktører
          */
-        public Champagne(string navn, string beskrivelse, string vol, double pris, string billede)
+        public Champagne(int id, string navn, string beskrivelse, string vol, double pris, string billede)
         {
+            _id = id;
             _navn = navn;
             _beskrivelse = beskrivelse;
             _vol = vol;
@@ -32,6 +34,17 @@ namespace Event_application.Model
         /*
          * Properties 
          */
+        public int Id
+        {
+            get => _id;
+            set => _id = value;
+        }
+
+        public string Vol
+        {
+            get => _vol;
+            set => _vol = value;
+        }
 
         public string Navn
         {
@@ -98,7 +111,7 @@ namespace Event_application.Model
         /*
          * Defult konstruktører - Med værdier 
          */
-        public Champagne(): this ("lys champagne", " beskrivelse", "10%,", 30, "champagnebillede")
+        public Champagne(): this (2,"lys champagne", " beskrivelse", "10%,", 30, "champagnebillede")
         {
            
         }
@@ -109,7 +122,7 @@ namespace Event_application.Model
 
         public override string ToString()
         {
-            return $"{nameof(_navn)}: {_navn}, {nameof(_beskrivelse)}: {_beskrivelse}, {nameof(_vol)}: {_vol}, {nameof(_pris)}: {_pris}, {nameof(_billede)}: {_billede}";
+            return $"{nameof(_id)}: {_id}, {nameof(_navn)}: {_navn}, {nameof(_beskrivelse)}: {_beskrivelse}, {nameof(_vol)}: {_vol}, {nameof(_pris)}: {_pris}, {nameof(_billede)}: {_billede}";
         }
     }
 }

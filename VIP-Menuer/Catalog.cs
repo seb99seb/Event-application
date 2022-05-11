@@ -10,26 +10,26 @@ namespace Event_application.VIP_Menuer
     {
         private static List<Almindelig> almindelig = new List<Almindelig>()
         {
-            new Almindelig("Burger", "hakkebøf, ost, agurk, tomat, løg, dressing", 30, "Burger alm.jpg"),
-            new Almindelig("PitaBrød", "tomat, agurk, salat, gulerødder og oksekød", 35, "Pitabrod alm.jpg"),
-            new Almindelig("Kebab", "tomat, agurk, salat og kebabkød ", 45, "Kebab alm.jpg"),
-            new Almindelig("Pizza", "tomatsovs, piberfrugt, ost, kødsovs og pepperoni ", 45, "Pizza alm.jpg"),
+            new Almindelig(1,"Burger", "hakkebøf, ost, agurk, tomat, løg, dressing", 30, "Burger alm.jpg"),
+            new Almindelig(2,"PitaBrød", "tomat, agurk, salat, gulerødder og oksekød", 35, "Pitabrod alm.jpg"),
+            new Almindelig(3,"Kebab", "tomat, agurk, salat og kebabkød ", 45, "Kebab alm.jpg"),
+            new Almindelig(4,"Pizza", "tomatsovs, piberfrugt, ost, kødsovs og pepperoni ", 45, "Pizza alm.jpg"),
         };
 
         private static List<Vegansk> vegansk = new List<Vegansk>()
         {
-            new Vegansk("Burger", "tomat, agurk, salat og vegansk bøff", 25, "Buger vegansk.jpg"),
-            new Vegansk("PitaBrød", "tomat, agurk, salat, gulerødder og grønne linser", 35, "Pitabrød vegansk.jpg"),
-            new Vegansk("Kebab", "tomat, agurk, salat og vegansk kebabkød ", 45, "Kebab vegansk.jpg"),
-            new Vegansk("Pizza", "tomatsovs, piberfrugt, salat og grønne linser", 45, "Pizza vegansk.jpg"),
+            new Vegansk(5,"Burger", "tomat, agurk, salat og vegansk bøff", 25, "Buger vegansk.jpg"),
+            new Vegansk(6,"PitaBrød", "tomat, agurk, salat, gulerødder og grønne linser", 35, "Pitabrød vegansk.jpg"),
+            new Vegansk(7,"Kebab", "tomat, agurk, salat og vegansk kebabkød ", 45, "Kebab vegansk.jpg"),
+            new Vegansk(8,"Pizza", "tomatsovs, piberfrugt, salat og grønne linser", 45, "Pizza vegansk.jpg"),
 
         };
 
         private static List<Champagne> champagne = new List<Champagne>()
         {
-            new Champagne("champagne", "beskrivelse", "20%", 30, "Champagne 1.jpg"),
-            new Champagne("champagne", "beskrivelse", "20%", 30, "Champagne 2.jpg"),
-            new Champagne("champagne", "beskrivelse", "20%", 30, "Champagne 3.jpg"),
+            new Champagne(9,"champagne", "beskrivelse", "20%", 30, "Champagne 1.jpg"),
+            new Champagne(10, "champagne", "beskrivelse", "20%", 30, "Champagne 2.jpg"),
+            new Champagne(11,"champagne", "beskrivelse", "20%", 30, "Champagne 3.jpg"),
         };
 
         public static List<Almindelig> GetMocAlmindelig()

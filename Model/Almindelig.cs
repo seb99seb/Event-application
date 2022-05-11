@@ -12,6 +12,7 @@ namespace Event_application.Model
         /*
          * Instansfelter 
          */
+        private int _id;
         private string _navn;
         private string _beskrivelse;
         private double _pris;
@@ -21,8 +22,9 @@ namespace Event_application.Model
          * Konstruktører
          */
 
-        public Almindelig(string navn, string beskrivelse, double pris, string billede)
+        public Almindelig( int id, string navn, string beskrivelse, double pris, string billede)
         {
+            _id = id;
             _navn = navn;
             _beskrivelse = beskrivelse;
             _pris = pris;
@@ -32,6 +34,12 @@ namespace Event_application.Model
         /*
          * Properties 
          */
+
+        public int Id
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         public string Navn
         {
@@ -93,7 +101,7 @@ namespace Event_application.Model
         /*
          * Defult konstruktører - Med værdier 
          */
-        public Almindelig() : this ("Burger", "hakkebøf, ost, agurk, tomat, løg, dressing", 30, "Burgerbillede")
+        public Almindelig() : this (1,"Burger", "hakkebøf, ost, agurk, tomat, løg, dressing", 30, "Burgerbillede")
         {
         }
 
@@ -103,7 +111,7 @@ namespace Event_application.Model
 
         public override string ToString()
         {
-            return $"{nameof(_navn)}: {_navn}, {nameof(_beskrivelse)}: {_beskrivelse}, {nameof(_pris)}: {_pris}, {nameof(_billede)}: {_billede}";
+            return $"{nameof(_id)}: {_id}, {nameof(_navn)}: {_navn}, {nameof(_beskrivelse)}: {_beskrivelse}, {nameof(_pris)}: {_pris}, {nameof(_billede)}: {_billede}";
         }
     }
 
