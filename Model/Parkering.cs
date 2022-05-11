@@ -56,12 +56,15 @@ namespace Event_application
 
         }
 
-        //test
+        
+        /*
+         * Metode
+         */
 
-
-
-
-
+        public override string ToString()
+        {
+            return $"{nameof(ParkeringsID)}: {ParkeringsID}, {nameof(ParkeringsNummer)}: {ParkeringsNummer}";
+        }
     }
 
 
