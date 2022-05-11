@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Event_application.Model;
 using Event_application.Services;
+using Event_application.VIP_Menuer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,31 +12,20 @@ namespace Event_application.Pages.VIP
 {
     public class VIPModel : PageModel
     {
-        private IServicecs _Al;
-        private IServicecs _Ve;
-        private IServicecs _Ch;
+        private Catalog catalogA;
 
-        public List<Almindelig> AlmindeligMenu { get; private set; }
-        public List<Vegansk> VeganskgMenu { get; private set; }
-        public List<Champagne> ChampagnegMenu { get; private set; }
-
-        public VIPModel(IServicecs service)
+        public VIPModel()
         {
-            _Al = service;
-            _Ve = service;
-            _Ch = service;
+            catalogA = new Catalog();
         }
 
+        public Dictionary<int, Almindelig> al { get; private set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            AlmindeligMenu = _Al.GetAllA();
-            VeganskgMenu = _Ve.GetAllV();
-            ChampagnegMenu = _Ch.GetAllC();
+            al = catalogA.AllA();
 
-           
-
+            return Page();
         }
-
     }
 }

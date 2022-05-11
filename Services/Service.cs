@@ -7,157 +7,157 @@ using Event_application.VIP_Menuer;
 
 namespace Event_application.Services
 {
-    public class Service : IServicecs
-    {
-        private readonly List<Almindelig> _almindeligMenu;
-        private readonly List<Vegansk> _veganskMenu;
-        private readonly List<Champagne> _ChampagneMenu;
+    //public class Service : IServicecs
+    //{
+    ////    private readonly List<Almindelig> _almindeligMenu;
+    ////    private readonly List<Vegansk> _veganskMenu;
+    ////    private readonly List<Champagne> _ChampagneMenu;
 
 
-        public Service()
-        {
-            _almindeligMenu = Catalog.GetMocAlmindelig();
-            _veganskMenu = Catalog.GetMocVegansk();
-            _ChampagneMenu = Catalog.GetMocVhampagne();
-        }
+    //    public Service()
+    //    {
+    //        _almindeligMenu = Catalog.GetMocAlmindelig();
+    //        _veganskMenu = Catalog.GetMocVegansk();
+    //        _ChampagneMenu = Catalog.GetMocVhampagne();
+    //    }
 
-        public List<Almindelig> GetAllA()
-        {
-            return new List<Almindelig>(_almindeligMenu);
-        }
+    //    public List<Almindelig> GetAllA()
+    //    {
+    //        return new List<Almindelig>(_almindeligMenu);
+    //    }
 
-        public List<Vegansk> GetAllV()
-        {
-            return new List<Vegansk>(_veganskMenu);
-        }
+    //    public List<Vegansk> GetAllV()
+    //    {
+    //        return new List<Vegansk>(_veganskMenu);
+    //    }
 
-        public List<Champagne> GetAllC()
-        {
-            return new List<Champagne>(_ChampagneMenu);
-        }
+    //    public List<Champagne> GetAllC()
+    //    {
+    //        return new List<Champagne>(_ChampagneMenu);
+    //    }
 
-        public Almindelig GetByIdA(int id)
-        {
-            Almindelig al = _almindeligMenu.Find(a => a.Id == id);
-            if (al == null)
-            {
-                throw new KeyNotFoundException();
-            }
+    //    public Almindelig GetByIdA(int id)
+    //    {
+    //        Almindelig al = _almindeligMenu.Find(a => a.Id == id);
+    //        if (al == null)
+    //        {
+    //            throw new KeyNotFoundException();
+    //        }
 
-            return al;
-        }
+    //        return al;
+    //    }
 
-        public Almindelig CreateA(Almindelig newAlmindelig)
-        {
-            
-            _almindeligMenu.Add(newAlmindelig);
+    //    public Almindelig CreateA(Almindelig newAlmindelig)
+    //    {
 
-            return newAlmindelig;
-        }
+    //        _almindeligMenu.Add(newAlmindelig);
 
-        public Almindelig DeleteA(int id)
-        {
-            Almindelig al = GetByIdA(id);
+    //        return newAlmindelig;
+    //    }
 
-            _almindeligMenu.Remove(al);
+    //    public Almindelig DeleteA(int id)
+    //    {
+    //        Almindelig al = GetByIdA(id);
 
-            return al;
-        }
+    //        _almindeligMenu.Remove(al);
 
-        public Almindelig ModifyA(Almindelig modifiedAlmindelig)
-        {
-            int ix = _almindeligMenu.FindIndex(a => a.Id == modifiedAlmindelig.Id);
-            if (ix == -1)
-            {
-                throw new KeyNotFoundException();
-            }
+    //        return al;
+    //    }
 
-            _almindeligMenu[ix] = modifiedAlmindelig;
+    //    public Almindelig ModifyA(Almindelig modifiedAlmindelig)
+    //    {
+    //        int ix = _almindeligMenu.FindIndex(a => a.Id == modifiedAlmindelig.Id);
+    //        if (ix == -1)
+    //        {
+    //            throw new KeyNotFoundException();
+    //        }
 
-            return modifiedAlmindelig;
-        }
+    //        _almindeligMenu[ix] = modifiedAlmindelig;
 
-        public Vegansk GetByIdV(int id)
-        {
-            Vegansk ve = _veganskMenu.Find(v => v.Id == id);
-            if (ve == null)
-            {
-                throw new KeyNotFoundException();
-            }
+    //        return modifiedAlmindelig;
+    //    }
 
-            return ve;
-        }
+    //    public Vegansk GetByIdV(int id)
+    //    {
+    //        Vegansk ve = _veganskMenu.Find(v => v.Id == id);
+    //        if (ve == null)
+    //        {
+    //            throw new KeyNotFoundException();
+    //        }
 
-        public Vegansk CreateV(Vegansk newVegansk)
-        {
-            _veganskMenu.Add(newVegansk);
+    //        return ve;
+    //    }
 
-            return newVegansk;
-        }
+    //    public Vegansk CreateV(Vegansk newVegansk)
+    //    {
+    //        _veganskMenu.Add(newVegansk);
 
-        public Vegansk DeleteV(int id)
-        {
-            Vegansk ve = GetByIdV(id);
+    //        return newVegansk;
+    //    }
 
-            _veganskMenu.Remove(ve);
+    //    public Vegansk DeleteV(int id)
+    //    {
+    //        Vegansk ve = GetByIdV(id);
 
-            return ve;
-        }
+    //        _veganskMenu.Remove(ve);
 
-        public Vegansk ModifyV(Vegansk modifiedVegansk)
-        {
-            int ix = _veganskMenu.FindIndex(v => v.Id == modifiedVegansk.Id);
-            if (ix == -1)
-            {
-                throw new KeyNotFoundException();
-            }
+    //        return ve;
+    //    }
 
-            _veganskMenu[ix] = modifiedVegansk;
+    //    public Vegansk ModifyV(Vegansk modifiedVegansk)
+    //    {
+    //        int ix = _veganskMenu.FindIndex(v => v.Id == modifiedVegansk.Id);
+    //        if (ix == -1)
+    //        {
+    //            throw new KeyNotFoundException();
+    //        }
 
-            return modifiedVegansk;
-        }
-    
+    //        _veganskMenu[ix] = modifiedVegansk;
 
-        public Champagne GetByIdC(int id)
-        {
-            Champagne ch = _ChampagneMenu.Find(c => c.Id == id);
-            if (ch == null)
-            {
-                throw new KeyNotFoundException();
-            }
-
-            return ch;
-
-        }
+    //        return modifiedVegansk;
+    //    }
 
 
-        public Champagne CreateC(Champagne newChampagne)
-        {
-            _ChampagneMenu.Add(newChampagne);
+    //    public Champagne GetByIdC(int id)
+    //    {
+    //        Champagne ch = _ChampagneMenu.Find(c => c.Id == id);
+    //        if (ch == null)
+    //        {
+    //            throw new KeyNotFoundException();
+    //        }
 
-            return newChampagne;
-        }
+    //        return ch;
 
-        public Champagne DeleteC(int id)
-        {
-            Champagne ch = GetByIdC(id);
+    //    }
 
-            _ChampagneMenu.Remove(ch);
 
-            return ch;
-        }
+    //    public Champagne CreateC(Champagne newChampagne)
+    //    {
+    //        _ChampagneMenu.Add(newChampagne);
 
-        public Champagne ModifyC(Champagne modifiedChampagne)
-        {
-            int ix = _ChampagneMenu.FindIndex(c => c.Id == modifiedChampagne.Id);
-            if (ix == -1)
-            {
-                throw new KeyNotFoundException();
-            }
+    //        return newChampagne;
+    //    }
 
-            _ChampagneMenu[ix] = modifiedChampagne;
+    //    public Champagne DeleteC(int id)
+    //    {
+    //        Champagne ch = GetByIdC(id);
 
-            return modifiedChampagne;
-        }
-    }
+    //        _ChampagneMenu.Remove(ch);
+
+    //        return ch;
+    //    }
+
+    //    public Champagne ModifyC(Champagne modifiedChampagne)
+    //    {
+    //        int ix = _ChampagneMenu.FindIndex(c => c.Id == modifiedChampagne.Id);
+    //        if (ix == -1)
+    //        {
+    //            throw new KeyNotFoundException();
+    //        }
+
+    //        _ChampagneMenu[ix] = modifiedChampagne;
+
+    //        return modifiedChampagne;
+    //    }
+    //}
 }
