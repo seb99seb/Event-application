@@ -35,6 +35,11 @@ namespace Event_application.User
             _type = type;
         }
         */
+        public bool LoggedIn
+        {
+            get => _loggedIn;
+            set => _loggedIn = value;
+        }
         public string Fornavn
         {
             get => _fornavn;
@@ -66,10 +71,10 @@ namespace Event_application.User
             set => _type = value;
         }
 
-        public void NyBruger(Bruger bruger)
+        public void NyBruger(string Fornavn, string Efternavn, string Brugernavn, string Adgangskode, string Email, string Type)
         {
             string sql = $"INSERT INTO Bruger (Fornavn, Efternavn, Brugernavn, Password, Email, Bruger_type)" +
-                $"VALUES ('{bruger.Fornavn}','{bruger.Efternavn}','{bruger.Brugernavn}','{bruger.Adgangskode}','{bruger.Email}','{bruger.Type}')";
+                $"VALUES ('{Fornavn}','{Efternavn}','{Brugernavn}','{Adgangskode}','{Email}','{Type}')";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
