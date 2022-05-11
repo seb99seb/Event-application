@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Event_application.Services
 {
-    public class PService : IParkeringGeneric<Parkering>
+    public class KService : IParkeringGeneric<Parkering>
     {
         private const string connectionString = "Server=tcp:eventzealand.database.windows.net,1433;Initial Catalog=Event;Persist Security Info=False;User ID=sovs;Password=password1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
