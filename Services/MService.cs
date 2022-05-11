@@ -29,6 +29,7 @@ namespace Event_application.Services
                     Parkering p = ReadParkering(reader);
                     list.Add(p);
                 }
+                // test
             }
 
             return list;
