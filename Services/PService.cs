@@ -87,12 +87,12 @@ namespace Event_application.Services
 
             return pp;
         }
-
+        /*
         public Parkering Read()
         {
             // Todo Tilføj Read til metode når det nødvendige til det, er på plads
         }
-
+        */
 
         public Parkering Update(Parkering updateParkering)
         {

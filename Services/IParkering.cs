@@ -16,7 +16,7 @@ namespace Event_application.Services
 
         //T Create(T newParkering);
 
-        T Read(); //Todo Tilføj Read til CRUD, når vi har de nødvendige informationer til at lave den.
+        //T Read(); //Todo Tilføj Read til CRUD, når vi har de nødvendige informationer til at lave den.
 
         T Update(T updateParkering);
 
