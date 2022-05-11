@@ -1,3 +1,4 @@
+using Event_application.User;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,8 @@ namespace Event_application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddSingleton<Bruger, Bruger>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
