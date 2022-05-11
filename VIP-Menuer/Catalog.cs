@@ -18,6 +18,8 @@ namespace Event_application.VIP_Menuer
             almindelig.Add(4, new Almindelig() { Id = 4, Navn = "Pizza", Beskrivelse = "tomatsovs, piberfrugt, ost, kødsovs og pepperoni", Pris = 45, Billede = "Pizza alm.jpg" });
 
         }
+
+
         public Dictionary<int, Almindelig> AllA()
         {
             return almindelig;

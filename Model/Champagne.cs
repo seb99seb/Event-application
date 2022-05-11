@@ -34,10 +34,23 @@ namespace Event_application.Model
         /*
          * Properties 
          */
+
         public int Id
         {
             get => _id;
             set => _id = value;
+        }
+
+        public string Navn
+        {
+            get => _navn;
+            set => _navn = value;
+        }
+
+        public string Beskrivelse
+        {
+            get => _beskrivelse;
+            set => _beskrivelse = value;
         }
 
         public string Vol
@@ -46,60 +59,10 @@ namespace Event_application.Model
             set => _vol = value;
         }
 
-        public string Navn
-        {
-            get => _navn;
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentNullException("Navn skal være længere end 3 tegn lang");
-
-                }
-                if (value.Length < 3)
-                {
-                    throw new ArgumentException("Navn skal være længere end 3 tegn lang");
-                }
-                _navn = value;
-            }
-        }
-
-        public string Beskrivelse
-        {
-            get => _beskrivelse;
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentNullException("Beskrivelse skal være mindt 10 tegn lang ");
-
-                }
-                if (value.Length < 10)
-                {
-                    throw new ArgumentException("Beskrivelse skal være 10 teg lang");
-                }
-                _beskrivelse = value;
-            }
-        }
-
-        public string Champagne1
-        {
-            get => _vol;
-            set => _vol = value;
-        }
-
         public double Pris
         {
             get => _pris;
-            set
-            {
-
-                if (value < 0)
-                {
-                    throw new ArgumentException(" Prisen skal være null eller posetiv");
-                }
-                _pris = value;
-            }
+            set => _pris = value;
         }
 
         public string Billede
@@ -107,6 +70,7 @@ namespace Event_application.Model
             get => _billede;
             set => _billede = value;
         }
+
 
         /*
          * Defult konstruktører - Med værdier 
