@@ -69,7 +69,6 @@ namespace Event_application
             set { _brugerID = value; }
 
         }
-
         
         /*
          * Metode

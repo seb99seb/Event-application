@@ -1,0 +1,18 @@
+﻿@page
+@model Event_application.User.LoginMenuModel
+@{
+}
+
+<h3>Bruger info</h3>
+<table border="1">
+    <tr>
+        <p>Fornavn: @Model.fornavn</p>
+        <p>Efternavn: @Model.efternavn</p>
+        <p>Email: @Model.email</p>
+    </tr>
+</table>
+<form method="post">
+    <div class="form-group">
+        <input type="submit" value="Log ud" />
+    </div>
+</form>
