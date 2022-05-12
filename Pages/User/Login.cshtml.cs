@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Event_application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,9 +11,11 @@ namespace Event_application.User
     public class LoginModel : PageModel
     {
         private Bruger bruger;
-        public LoginModel(Bruger tempbruger)
+        private BService bservice;
+        public LoginModel(Bruger tempbruger, BService Bservice)
         {
             bruger = tempbruger;
+            bservice = Bservice;
         }
         [BindProperty] public string username { get; set; }
         [BindProperty] public string password { get; set; }
@@ -29,7 +32,7 @@ namespace Event_application.User
         }
         public IActionResult OnPost()
         {
-            bruger.Login(username, password);
+            bservice.Login(username, password);
             if (bruger.LoggedIn)
             {
                 return RedirectToPage("LoginMenu");
