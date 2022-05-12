@@ -17,7 +17,7 @@ namespace Event_application.Pages.Parkering
 
         public ParkeringModel(IParkeringGeneric<Event_application.Parkering> service)
         {
-            _service = service;
+            _service = service; //f
         }
 
 
