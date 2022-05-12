@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Event_application.Services;
 
 namespace Event_application
 {
@@ -24,6 +25,7 @@ namespace Event_application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IParkeringGeneric<Parkering>, PService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

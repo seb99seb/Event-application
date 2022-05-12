@@ -83,7 +83,16 @@ namespace Event_application.Services
         {
             Parkering pp = new Parkering();
 
-            pp.ParkeringsID = reader.GetInt16(1);
+            pp.ParkeringsID = reader.GetInt32(0);
+            pp.ParkeringsNummer = reader.GetInt32(1);
+            if (reader.IsDBNull(2))
+            {
+                pp.BrugerID = -1;
+            }
+            else
+            {
+                pp.BrugerID = reader.GetInt32(2);
+            }
 
             return pp;
         }
@@ -96,7 +105,7 @@ namespace Event_application.Services
 
         public Parkering Update(Parkering updateParkering)
         {
-            string sqlString = $"Update from Parkering where I sets Id ='{updateParkering.ParkeringsID}', = '{updateParkering.ParkeringsNummer}";
+            string sqlString = $"Update Parkering set Parkering_id ={updateParkering.ParkeringsID}, Parkeringsplads_nummer = {updateParkering.ParkeringsNummer}, Bruger_id = {updateParkering.BrugerID} where Parkering_id = {updateParkering.ParkeringsID}";
 
 
             Parkering Update = (updateParkering);
@@ -104,8 +113,7 @@ namespace Event_application.Services
             {
                 SqlCommand command = new SqlCommand(sqlString, connection);
                 command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+                
 
                 int rows = command.ExecuteNonQuery();
 
