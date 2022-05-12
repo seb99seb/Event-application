@@ -58,14 +58,12 @@ namespace Event_application
             set { _parkeringsNummer = value; }
 
         }
-
         public int BrugerID
         {
             get { return _brugerID; }
             set { _brugerID = value; }
 
         }
-
         
         /*
          * Metode
