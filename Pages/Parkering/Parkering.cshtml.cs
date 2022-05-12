@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Event_application.Services;
+using Event_application.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,17 +14,18 @@ namespace Event_application.Pages.Parkering
         private IParkeringGeneric<Event_application.Parkering> _service;
 
 
-        public ParkeringModel(IParkeringGeneric<Event_application.Parkering> service)
+        public ParkeringModel(IParkeringGeneric<Event_application.Parkering> service, Bruger bruger, BService bService)
         {
             _service = service;
+            _bruger = bruger;
+            _bservice = bService;
         }
-
-
+        private BService _bservice;
+        private Bruger _bruger;
         public void OnGet()
         {
 
         }
-
         public void OnPost()
         {
             List<Event_application.Parkering> Plist = _service.GetAll();
@@ -31,8 +33,8 @@ namespace Event_application.Pages.Parkering
             if (Free.Count > 0)
             {
                 Event_application.Parkering p = Free[0];
-                // Todo Find bruger
-                p.BrugerID = 1;
+                // FindId() metode bruges til at finde bruger_id af den bruger som er logget ind
+                p.BrugerID = _bservice.FindId(_bruger);
                 _service.Update(p);
             }
 
