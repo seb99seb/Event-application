@@ -13,6 +13,8 @@ namespace Event_application.Pages.Parkering
     {
         private IParkeringGeneric<Event_application.Parkering> _service;
 
+        public int antalfrieppladser { get; set; }
+
 
         public ParkeringModel(IParkeringGeneric<Event_application.Parkering> service, Bruger bruger, BService bService)
         {
@@ -24,7 +26,9 @@ namespace Event_application.Pages.Parkering
         private Bruger _bruger;
         public void OnGet()
         {
-
+            List<Event_application.Parkering> Plist = _service.GetAll();
+            List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
+            antalfrieppladser = Free.Count;
         }
         public void OnPost()
         {
@@ -37,6 +41,9 @@ namespace Event_application.Pages.Parkering
                 p.BrugerID = _bservice.FindId(_bruger);
                 _service.Update(p);
             }
+
+            antalfrieppladser = Free.Count;
+
 
         }
 
