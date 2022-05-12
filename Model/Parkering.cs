@@ -14,12 +14,14 @@ namespace Event_application
         // Instance field
         private int _parkeringsID;
         private int _parkeringsNummer;
+        private int _brugerID;
 
 
         // Default constructor
         public Parkering()
         {
             // Todo husk at lave default constructor når der er flere informationer i min klasse
+            _brugerID = -1;
         }
 
         /// <summary>
@@ -32,6 +34,7 @@ namespace Event_application
         {
             _parkeringsID = parkeringsId;
             _parkeringsNummer = parkeringsNummer;
+            _brugerID = -1;
         }
 
         // Properties
@@ -55,7 +58,12 @@ namespace Event_application
             set { _parkeringsNummer = value; }
 
         }
+        public int BrugerID
+        {
+            get { return _brugerID; }
+            set { _brugerID = value; }
 
+        }
         
         /*
          * Metode

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Event_application.Services;
 
 namespace Event_application
 {
@@ -26,7 +27,7 @@ namespace Event_application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
+            services.AddSingleton<IParkeringGeneric<Parkering>, PService>();
             services.AddSingleton<Bruger, Bruger>();
         }
 
