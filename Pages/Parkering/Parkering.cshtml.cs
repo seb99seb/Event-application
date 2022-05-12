@@ -12,7 +12,6 @@ namespace Event_application.Pages.Parkering
     public class ParkeringModel : PageModel
     {
         public int antalfrieppladser { get; set; }
-
         private IParkeringGeneric<Event_application.Parkering> _service;
         private BService _bservice;
         private Bruger _bruger;
@@ -26,6 +25,9 @@ namespace Event_application.Pages.Parkering
         [BindProperty] public bool loggedin { get; set; }
         public IActionResult OnGet()
         {
+            List<Event_application.Parkering> Plist = _service.GetAll();
+            List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
+            antalfrieppladser = Free.Count;
             loggedin = _bruger.LoggedIn;
             return Page();
         }
@@ -33,7 +35,6 @@ namespace Event_application.Pages.Parkering
         {
             List<Event_application.Parkering> Plist = _service.GetAll();
             List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
-            antalfrieppladser = Free.Count;
             if (Free.Count > 0)
             {
                 Event_application.Parkering p = Free[0];
@@ -41,6 +42,7 @@ namespace Event_application.Pages.Parkering
                 p.BrugerID = _bservice.FindId(_bruger);
                 _service.Update(p);
             }
+            antalfrieppladser = Free.Count;
             return Page();
         }
 
