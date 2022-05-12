@@ -29,6 +29,7 @@ namespace Event_application
         /// </summary>
         /// <param name="parkeringsId">Det er et parkeringsnummer</param>
         /// <param name="parkeringsNummer">Det er reg. nr. på de forskellige kunders biler</param>
+        /// <param name="brugerID">Det er et brugerID, der viser de forskellige brugers indentitet</param>
 
         public Parkering(int parkeringsId, int parkeringsNummer)
         {
@@ -59,6 +60,9 @@ namespace Event_application
 
         }
 
+        /// <summary>
+        /// Get and sets BrugerID
+        /// </summary>
         public int BrugerID
         {
             get { return _brugerID; }
@@ -73,7 +77,7 @@ namespace Event_application
 
         public override string ToString()
         {
-            return $"{nameof(ParkeringsID)}: {ParkeringsID}, {nameof(ParkeringsNummer)}: {ParkeringsNummer}";
+            return $"{nameof(ParkeringsID)}: {ParkeringsID}, {nameof(ParkeringsNummer)}: {ParkeringsNummer}, {nameof(BrugerID)}: {BrugerID}";
         }
     }
 
