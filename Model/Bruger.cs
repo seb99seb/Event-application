@@ -9,6 +9,7 @@ namespace Event_application.User
 {
     public class Bruger
     {
+        #region Instance fields
         private bool _loggedIn;
         private string _fornavn;
         private string _efternavn;
@@ -16,23 +17,14 @@ namespace Event_application.User
         private string _adgangskode;
         private string _email;
         private string _type;
-
+        #endregion
+        #region Constructor
         public Bruger()
         {
             _loggedIn = false;
         }
-        /*
-        public Bruger(string fornavn, string efternavn, string brugernavn, string adgangskode, string email, string type)
-        {
-            _loggedIn = false;
-            _fornavn = fornavn;
-            _efternavn = efternavn;
-            _brugernavn = brugernavn;
-            _adgangskode = adgangskode;
-            _email = email;
-            _type = type;
-        }
-        */
+        #endregion
+        #region Properties
         public bool LoggedIn
         {
             get => _loggedIn;
@@ -68,5 +60,6 @@ namespace Event_application.User
             get => _type;
             set => _type = value;
         }
+        #endregion
     }
 }
