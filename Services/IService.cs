@@ -6,14 +6,11 @@ using Event_application.Model;
 
 namespace Event_application.Services
 {
-    public interface IService 
+    public interface IService
     {
-        List<Almindelig> GetAll();
-        Almindelig Create(Almindelig newAl);
-        Almindelig Delete(String AlNavn);
-        Almindelig Modify(Almindelig modifiedAl);
-
-
+        Dictionary<int, Almindelig> ALLA();
+        Dictionary<int, Vegansk> AllV();
+        Dictionary<int, Champagne> ALLC();
 
     }
 }
