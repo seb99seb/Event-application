@@ -3,19 +3,34 @@
 @{
 }
 
+<div class="row">
 
-<form method="post">
+    <div class="col-sm">
+        <h1>Oplysninger</h1>
 
-    <p>Her er der en oversigt over alle de ledige parkeringspladser</p>
+        <p>På denne del af vores hjemmeside kan du gå ind og booke en parkeringsplads, så du er sikker på at få en plads til vores arrangement. I alt har vi 90 parkeringspladser. Her til højre kan du se en oversigt over antal ledige pladser, så skynd dig at booke en plads i dag, så du kan være med til vores spændende arrangement </p>
 
-
-    <p>Antal ledige pladser @Model.antalfrieppladser</p>
-    
-    
-    <p> Her kan du booke en parkeringsplads</p>
-
-
-    <input type="submit" value="Book" class="btn btn-primary" />
+        
+        <img src="~/P billede.jpg" style ="width:62.5%"/>
 
 
-</form>
+    </div>
+    <div class="col-sm">
+        <form method="post">
+            
+            <h1>Oversigt</h1>
+
+            <p>Antal ledige pladser @Model.antalfrieppladser</p>
+
+
+            <p> Her kan du booke en parkeringsplads</p>
+
+
+            <input type="submit" value="Book" class="btn btn-primary"/>
+
+            
+
+        </form>
+    </div>
+
+</div>
