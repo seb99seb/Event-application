@@ -24,12 +24,17 @@ namespace Event_application.Pages.Parkering
         }
         [BindProperty] public bool Loggedin { get; set; }
         [BindProperty] public List<int> List { get; set; }
+        [BindProperty] public bool Limit { get; set; }
         [BindProperty] public bool Signed { get; set; }
 
 
         public IActionResult OnGet()
         {
             List<int> List = _service.GetAllId();
+            int j = List.Count();
+            if (j == 90){
+                Limit = true;
+            }
             int var = _bservice.FindId(_bruger);
             foreach (int i in List)
             {
