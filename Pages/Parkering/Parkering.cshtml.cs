@@ -47,6 +47,7 @@ namespace Event_application.Pages.Parkering
             List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
             antalfrieppladser = Free.Count;
             Loggedin = _bruger.LoggedIn;
+            //yo
             return Page();
         }
         public IActionResult OnPost()
