@@ -9,13 +9,15 @@
         <h1>Oplysninger</h1>
 
         <p>På denne del af vores hjemmeside kan du gå ind og booke en parkeringsplads, så du er sikker på at få en plads til vores arrangement. I alt har vi 90 parkeringspladser. Her til højre kan du se en oversigt over antal ledige pladser, så skynd dig at booke en plads i dag, så du kan være med til vores spændende arrangement </p>
+
+        
         <img src="~/P billede.jpg" style ="width:62.5%"/>
 
 
     </div>
     <div class="col-sm">
         <form method="post">
-
+            
             <h1>Oversigt</h1>
 
             <p>Antal ledige pladser @Model.antalfrieppladser</p>
@@ -23,19 +25,10 @@
 
             <p> Her kan du booke en parkeringsplads</p>
 
-            @if (Model.Signed)
-            {
-                <a>Du har alleredet Booket en parkeringsplads</a>
-            }
-            else if (Model.Loggedin && Model.Limit == false)
-            {
-                <input type="submit" value="Book" class="btn btn-primary" />
-            }
-            else
-            {
-                <a>Du skal logge ind for at kunne Booke en parkeringsplads</a>
-            }
 
+            <input type="submit" value="Book" class="btn btn-primary"/>
+
+            
 
         </form>
     </div>
