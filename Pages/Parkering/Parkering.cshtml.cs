@@ -56,7 +56,7 @@ namespace Event_application.Pages.Parkering
             if (Free.Count > 0)
             {
                 Event_application.Parkering p = Free[0];
-                // FindId() metode bruges til at finde bruger_id af den bruger som er logget ind
+                //FindId() metode bruges til at finde bruger_id af den bruger som er logget ind
                 p.BrugerID = _bservice.FindId(_bruger);
                 _service.Update(p);
             }
