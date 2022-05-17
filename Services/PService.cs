@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace Event_application.Services
 {
+    /// <summary>
+    /// En model klasse - Det her er vores PService (parkeringsservice). I denne klasse knyttes metoderne på vores database
+    /// </summary>
     public class PService : IParkeringGeneric<Parkering>
     {
+        /// <summary>
+        /// Connectionstring, hvor vi kobler vores data til vores database
+        /// </summary>
         private const string connectionString = "Server=tcp:eventzealand.database.windows.net,1433;Initial Catalog=Event;Persist Security Info=False;User ID=sovs;Password=password1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         private List<Parkering> _list;
 
+        /// <summary>
+        /// En liste over alle vores parkeringspladser
+        /// </summary>
+        /// <returns>Vores liste</returns>
         public List<Parkering> GetAll()
         {
             List<Parkering> list = new List<Parkering>();
@@ -36,6 +46,11 @@ namespace Event_application.Services
         }
 
 
+        /// <summary>
+        /// En metode hvor vi skaffer vores parkeringspladser ved brug af parkeringsID 
+        /// </summary>
+        /// <param name="id">Det er vores parkeringsid</param>
+        /// <returns>Vores parkeringsplads</returns>
         public Parkering GetbyId(int id)
         {
             Parkering p = new Parkering();
@@ -79,6 +94,11 @@ namespace Event_application.Services
         //    }
         //}
 
+        /// <summary>
+        /// En metode der bruges til at vise de ledige parkeringspladser der er tilbage
+        /// </summary>
+        /// <param name="reader">Den struktur der indeholder resultatstabellen</param>
+        /// <returns>ledige parkeringspladser</returns>
         private Parkering ReadParkering(SqlDataReader reader)
         {
             Parkering pp = new Parkering();
@@ -103,6 +123,11 @@ namespace Event_application.Services
         }
         */
 
+        /// <summary>
+        /// En metode, som bruges til at opdaterer vores parkeringspladser 
+        /// </summary>
+        /// <param name="updateParkering">Det er update til vores parkeringsplads</param>
+        /// <returns>Vores updateparkering</returns>
         public Parkering Update(Parkering updateParkering)
         {
             string sqlString = $"Update Parkering set Parkering_id ={updateParkering.ParkeringsID}, Parkeringsplads_nummer = {updateParkering.ParkeringsNummer}, Bruger_id = {updateParkering.BrugerID} where Parkering_id = {updateParkering.ParkeringsID}";
@@ -127,6 +152,11 @@ namespace Event_application.Services
             return updateParkering;
         }
 
+        /// <summary>
+        /// En metode, som bruges til at slette vores parkeringspladser
+        /// </summary>
+        /// <param name="id">Vores Delete id</param>
+        /// <returns>Delete</returns>
         public Parkering Delete(int id)
         {
             string sqlString = $"delete from Parkering Where Id = {id}";
