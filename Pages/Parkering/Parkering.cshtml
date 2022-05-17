@@ -17,7 +17,7 @@
     </div>
     <div class="col-sm">
         <form method="post">
-            
+
             <h1>Oversigt</h1>
 
             <p>Antal ledige pladser @Model.antalfrieppladser</p>
@@ -25,10 +25,19 @@
 
             <p> Her kan du booke en parkeringsplads</p>
 
+            @if (Model.Signed)
+            {
+                <a>Du har alleredet Booket en parkeringsplads</a>
+            }
+            else if (Model.Loggedin && Model.Limit == false)
+            {
+                <input type="submit" value="Book" class="btn btn-primary" />
+            }
+            else
+            {
+                <a>Du skal logge ind for at kunne Booke en parkeringsplads</a>
+            }
 
-            <input type="submit" value="Book" class="btn btn-primary"/>
-
-            
 
         </form>
     </div>

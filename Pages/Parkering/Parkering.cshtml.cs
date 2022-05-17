@@ -22,12 +22,26 @@ namespace Event_application.Pages.Parkering
             _bruger = bruger;
             _bservice = bService;
         }
-        [BindProperty] public bool loggedin { get; set; }
+        [BindProperty] public bool Loggedin { get; set; }
+        [BindProperty] public List<int> List { get; set; }
+        [BindProperty] public bool Signed { get; set; }
+
+
+
         public IActionResult OnGet()
-        {
+            List<int> List = _service.GetAllId();
+            int var = _bservice.FindId(_bruger);
+            foreach (int i in List)
+            {
+                if (i == var)
+                {
+                Signed = true;
+                }
+            }
+            }
             List<Event_application.Parkering> Plist = _service.GetAll();
             List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
-            antalfrieppladser = Free.Count;
+            Loggedin = _bruger.LoggedIn;
             loggedin = _bruger.LoggedIn;
             return Page();
         }
@@ -42,7 +56,7 @@ namespace Event_application.Pages.Parkering
                 p.BrugerID = _bservice.FindId(_bruger);
                 _service.Update(p);
             }
-            antalfrieppladser = Free.Count;
+            return RedirectToPage("Parkering");
             return Page();
         }
         
