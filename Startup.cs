@@ -30,6 +30,8 @@ namespace Event_application
             services.AddSingleton<IParkeringGeneric<Parkering>, PService>();
             services.AddSingleton<Bruger, Bruger>();
             services.AddSingleton<BService, BService>();
+            services.AddSingleton<AService, AService>();
+            services.AddSingleton<ITilmeldingGeneric<Tilmeld>, AService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

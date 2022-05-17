@@ -1,5 +1,5 @@
 @page
-@model Event_application.Pages.Arrangement_indexModel
+@model Event_application.Pages.Arrangement.Arrangement_indexModel
 @{
 }
 
@@ -47,7 +47,24 @@
 
 
 
-<button class="button button2">TILMELD</button>
+
+<p>
+    Antal tilmeldte @Model.Antaltilmeldte ud af 500!
+<p> Her kan du tilmelde dig begivenheden</p>
+
+@if (Model.Signed)
+{
+    <a>Du er allerede tilmeldt!</a>
+}
+else if (Model.Loggedin && Model.Limit == false)
+{
+    <input type="submit" value="Tilmeld!" class="btn btn-primary" />
+}
+else
+{
+    <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
+}
+</p>
 
 
 
