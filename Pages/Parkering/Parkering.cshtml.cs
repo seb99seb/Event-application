@@ -15,7 +15,7 @@ namespace Event_application.Pages.Parkering
         private IParkeringGeneric<Event_application.Parkering> _service;
         private BService _bservice;
         private Bruger _bruger;
-
+         
         public ParkeringModel(IParkeringGeneric<Event_application.Parkering> service, Bruger bruger, BService bService)
         {
             _service = service;
