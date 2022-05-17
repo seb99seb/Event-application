@@ -15,9 +15,6 @@ namespace Event_application.Services
         /// Connectionstring, hvor vi kobler vores data til vores database
         /// </summary>
         private const string connectionString = "Server=tcp:eventzealand.database.windows.net,1433;Initial Catalog=Event;Persist Security Info=False;User ID=sovs;Password=password1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-        private List<Parkering> _list;
-
         /// <summary>
         /// En liste over alle vores parkeringspladser
         /// </summary>
@@ -44,8 +41,26 @@ namespace Event_application.Services
 
             return list;
         }
+        public List<int> GetAllId()
+        {
+            List<int> list = new List<int>();
+            string sql = "select Bruger_id from Parkering WHERE Bruger_id>0";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.Connection.Open();
 
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int p = ReadId(reader);
+                    list.Add(p);
+                }
+                return list;
+            }
+        }
         /// <summary>
         /// En metode hvor vi skaffer vores parkeringspladser ved brug af parkeringsID 
         /// </summary>
@@ -115,6 +130,11 @@ namespace Event_application.Services
             }
 
             return pp;
+        }
+        private int ReadId(SqlDataReader reader)
+        {
+            int i = reader.GetInt32(0);
+            return i;
         }
         /*
         public Parkering Read()

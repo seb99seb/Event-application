@@ -20,6 +20,7 @@ namespace Event_application.Services
         /// <returns></returns>
         List<T> GetAll();
 
+        List<int> GetAllId();
 
         /// <summary>
         /// En generisk metode, hvor man kan få kundernes parkerings id.    
