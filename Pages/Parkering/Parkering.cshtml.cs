@@ -58,7 +58,6 @@ namespace Event_application.Pages.Parkering
             antalfrieppladser = Free.Count;
             return RedirectToPage("Parkering");
         }
-
-        //Given: Jeg vil gerne kunne booke en ledig parkeringsplads til min bil
+        
     }
 }
