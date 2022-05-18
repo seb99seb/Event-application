@@ -17,7 +17,12 @@ namespace Event_application.User
         private string _email;
         private string _type;
 
+
         public Bruger()
+        {
+        }
+
+        public Bruger(string empty)
         {
             _loggedIn = false;
         }

@@ -8,6 +8,7 @@ namespace Event_application.Services
 {
     public interface IVIP_service
     {
-        Bruger add(Bruger tilmeldBruger);
+        int GetByVIP( int id);
+         
     }
 }

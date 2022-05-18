@@ -13,15 +13,15 @@ namespace Event_application.Pages
     public class VIP_TilmeldingModel : PageModel
     {
 
-        private BService _service;
-        private IVIP_service _VIP_service;
-        public VIP_TilmeldingModel(IVIP_service ser)
+        private TService _tservice;
+        private Bruger _bruger;
+        private BService _bservice;
+        public VIP_TilmeldingModel(TService ser, Bruger bruger, BService bService)
         {
-            _VIP_service = ser;
+            _tservice = ser;
+            _bruger = bruger;
+            _bservice = bService;
         }
-
-        [BindProperty]
-        public Bruger bruger { get; private set; }
 
     
         public IActionResult OnGet()
@@ -31,14 +31,9 @@ namespace Event_application.Pages
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _VIP_service.add(bruger);
-
-            return RedirectToPage("TilmeldBruger");
+            int x = 5;
+            _tservice.Create(x);
+            return Page();
         }
         
     }
