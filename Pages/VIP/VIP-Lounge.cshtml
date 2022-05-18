@@ -39,34 +39,44 @@
 </body>
 </html>
 
+@if (Model.Signed)
+{
+    <a>Du har alleredet tilkøbt en plads i VIP-loungen</a>
+}
+else if (Model.Loggedin)
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            .button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 32px;
+                margin: 8px 4px;
+                cursor: pointer;
+            }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        .button {
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 32px;
-            margin: 8px 4px;
-            cursor: pointer;
-        }
+            .button2 {
+                background-color: #008CBA;
+            }
+            /* Blue */
+        </style>
+    </head>
+    <body>
 
-        .button2 {
-            background-color: #008CBA;
-        }
-        /* Blue */
-    </style>
-</head>
-<body>
+        <a href="VIP-Tilmelding/" class="button">TILMELD</a>
 
-    <a href="VIP-Tilmelding/" class="button">TILMELD</a>
-
-</body>
+    </body>
 </html>
+}
+else
+{
+<a>Du skal logge ind for at kunne tilkøbe en plads i VIP-loungen</a>
+}
 
 

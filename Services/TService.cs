@@ -82,7 +82,31 @@ namespace Event_application.Services
             return list;
         }
 
+        public List<int> GetAllId()
+        {
+            List<int> list = new List<int>();
+            string sql = "select Bruger_id from VIP WHERE Bruger_id>0";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.Connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int p = ReadId(reader);
+                    list.Add(p);
+                }
+                return list;
+            }
+        }
+        private int ReadId(SqlDataReader reader)
+        {
+            int i = reader.GetInt32(0);
+            return i;
+        }
         public VIP GetbyId(int id)
         {
             VIP p = new VIP();

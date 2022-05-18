@@ -3,13 +3,17 @@
 @{
 }
 
-<form method="post">
-
     <p>Er du sikker på at du vil tilmelde dig? </p>
 
+    <form method="post" asp-page-handler="Yes">
+        <div class="form-group">
+            <input type="submit" value="Ja" />
+        </div>
+    </form>
 
-    <input type="submit" value="knap" class="btn btn-primary" />
-
-
-</form>
+    <form method="post" asp-page-handler="No">
+        <div class="form-group">
+            <input type="submit" value="Nej" />
+        </div>
+    </form>
 
