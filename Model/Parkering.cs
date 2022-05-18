@@ -20,7 +20,6 @@ namespace Event_application
         // Default constructor
         public Parkering()
         {
-            // Todo husk at lave default constructor når der er flere informationer i min klasse
             _brugerID = -1;
         }
 
