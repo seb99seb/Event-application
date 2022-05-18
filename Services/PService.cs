@@ -87,27 +87,6 @@ namespace Event_application.Services
             return p;
         }
 
-        //public Parkering Create(Parkering newParkering)
-        //{
-        //    string sql = "insert into Parkering VALUES(@name, @v2, @v3)";
-
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        SqlCommand cmd = new SqlCommand(sql, connection);
-        //        cmd.Connection.Open();
-
-        //        cmd.Parameters.AddWithValue("@name", newParkering.ParkeringsID);
-
-        //        int rows = cmd.ExecuteNonQuery();
-
-        //        if (rows != 1)
-        //        {
-        //            throw new Exception("dab");
-        //        }
-
-        //        return newParkering;
-        //    }
-        //}
 
         /// <summary>
         /// En metode der bruges til at vise de ledige parkeringspladser der er tilbage
