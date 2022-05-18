@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Event_application.Services
 {
+    //Aservice (Arrangementservice) - Her knytter vi vores metoder til vores database.
     public class AService : ITilmeldingGeneric<Tilmeld>
     {
+        //Connectionstring til vores database.
         private const string connectionString = @"Server=tcp:eventzealand.database.windows.net,1433;Initial Catalog=Event;Persist Security Info=False;User ID=sovs;Password=password1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
 
-
+        //Liste over alle tilmeldinger.
         public List<Tilmeld> GetAll()
         {
             List<Tilmeld> list = new List<Tilmeld>();
@@ -76,15 +78,16 @@ namespace Event_application.Services
             return a;
         }
 
-
+        //
         public Tilmeld Create(Tilmeld newTilmeld)
         {
-            string sql = "insert into Arrangementet VALUES(@bestillings_ID)";
+            string sql = "insert into Arrangementet VALUES(@bestillings_ID, @bruger_ID)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(sql, connection);
                 cmd.Connection.Open();
                 cmd.Parameters.AddWithValue("@bestillings_ID", newTilmeld.Bestillings_ID);
+                cmd.Parameters.AddWithValue("@bruger_ID", newTilmeld.Bruger_ID);
                 int rows = cmd.ExecuteNonQuery();
                 if (rows != 1)
                 {
@@ -116,7 +119,7 @@ namespace Event_application.Services
         }
         public Tilmeld Update(Tilmeld UpdateTilmeld)
         {
-            string sqlstring = $"Update Arrangement set Bestillings_ID={UpdateTilmeld.Bestillings_ID}, Bruger_ID={UpdateTilmeld.Bruger_ID}";
+            string sqlstring = $"Update Arrangementet set Bestillings_ID={UpdateTilmeld.Bestillings_ID}, Bruger_ID={UpdateTilmeld.Bruger_ID}";
             Tilmeld Update = (UpdateTilmeld);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -132,7 +135,7 @@ namespace Event_application.Services
         }
         public Tilmeld Delete(int bestillings_ID)
         {
-            string sqlstring = $"delete from Arrangement where Id={bestillings_ID}";
+            string sqlstring = $"delete from Arrangementet where Id={bestillings_ID}";
             Tilmeld Delete = GetbyID(bestillings_ID);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

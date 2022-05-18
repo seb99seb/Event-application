@@ -34,7 +34,7 @@ namespace Event_application.Pages.Arrangement
         [BindProperty] public bool Signed { get; set; }
 
 
-        //if (d < 500) gør at der skal være under 500 tilmeldte før man selv kan tilmelde sig begivenheden.
+        //if (d < 500) gør at der skal være under 500 tilmeldte før man selv kan tilmelde sig begivenheden. 
         public IActionResult OnGet()
         {
             List<int> List = _service.GetAllId();
@@ -46,6 +46,7 @@ namespace Event_application.Pages.Arrangement
             else
             {
                 Limit = false;
+               
             }
             int var = _bservice.FindId(_bruger);
             foreach (int i in List)
@@ -74,6 +75,7 @@ namespace Event_application.Pages.Arrangement
             }
             Antaltilmeldte = Free.Count;
             return RedirectToPage("Arrangement");
+
         }
 
     }

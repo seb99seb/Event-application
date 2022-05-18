@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Event_application.Services
 {
+    //Model klasse (Interface), der indeholder CRUD samt en generisk liste.
     public interface ITilmeldingGeneric<A>
     {
         List<A> GetAll();
