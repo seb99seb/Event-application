@@ -3,96 +3,45 @@
 @{
 }
 
+
+<div class="row"
+
+    <div class="col-sm"
 <h1>Tour De France</h1>
+    </div>
 
-<!DOCTYPE html>
-<html>
-<body>
 
-    <img src="/tadej-pogacar-062321-getty-ftr_9cuwq5lcrbpp1k8ou4gmb8rhu.jpg" alt="Trulli" width="500" height="333">
-</body>
-</html>
 
-<h5>
-    Lørdag den 2. juli 2022 kommer verdens største cykelløb, Tour de France, til Fjordlandet, når Grand Départ-rytterne cykler igennem den naturskønne destination.
+<div class="col-sm">
+    <form method="post">
 
-    Roskilde er startby for 2. étape af Tour de France og herefter går touren gennem Lejre, inden feltet fortsætter de 202 km mod målbyen Nyborg.
 
-    Flere milliarder seere fra 190 lande ser med, når Grand Départ-rytterne suser gennem Fjordlandet – og du er naturligvis inviteret til at tage del i den gule folkefest, som for alvor skydes i gang 100 dage før tour-starten.
+
+        <h1> Tilmeld dig nu!</h1>
+        <p>Antal tilmeldte @Model.Antaltilmeldte ud af 500</p>
+        <p> Her kan du tilmelde dig begivenheden</p>
+
+        @if (Model.Signed)
+        {
+            <a>Du er allerede tilmeldt</a>
+        }
+        else if (Model.Loggedin && Model.Limit == false)
+        {
+            <input type="submit" value="tilmeld" class="btn btn-primary" />
+        }
+        else
+        {
+            <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
+        }
+
+    </form>
+</div>
+    </div>
+
     
-    Så skynd dig at tilmelde dig arrangementet! Der er kun 500 pladser. 
-
-</h5>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        .button {
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 32px;
-            margin: 8px 4px;
-            cursor: pointer;
-        }
-
-        .button2 {
-            background-color: #008CBA;
-        }
-        /* Blue */
-    </style>
-</head>
 
 
 
-
-<p>
-    Antal tilmeldte @Model.Antaltilmeldte ud af 500!
-<p> Her kan du tilmelde dig begivenheden</p>
-
-@if (Model.Signed)
-{
-    <a>Du er allerede tilmeldt!</a>
-}
-else if (Model.Loggedin && Model.Limit == false)
-{
-    <input type="submit" value="Tilmeld!" class="btn btn-primary" />
-}
-else
-{
-    <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
-}
-</p>
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Title of the document</title>
-    <style>
-        .button {
-            background-color: #1c87c9;
-            border: none;
-            color: white;
-            padding: 20px 34px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <a href="/Program/Program" class="button">Se program </a>
-</body>
-</html>
 
 
 

@@ -39,15 +39,11 @@ namespace Event_application.Pages.Arrangement
         {
             List<int> List = _service.GetAllId();
             int d = List.Count();
-            if (d < 500)
+            if (d == 90)
             {
                 Limit = true;
             }
-            else
-            {
-                Limit = false;
-               
-            }
+            
             int var = _bservice.FindId(_bruger);
             foreach (int i in List)
             {
@@ -57,7 +53,7 @@ namespace Event_application.Pages.Arrangement
                 }
             }
             List<Event_application.Tilmeld> Alist = _service.GetAll();
-            List<Event_application.Tilmeld> Free = Alist.Where(a => a.Bruger_ID == -1).ToList();
+            List<Event_application.Tilmeld> Free = Alist.Where(a => a.Bruger_id == +1).ToList();
             Antaltilmeldte = Free.Count;
             Loggedin = _bruger.LoggedIn;
             return Page();
@@ -65,16 +61,16 @@ namespace Event_application.Pages.Arrangement
         public IActionResult OnPost()
         {
             List<Event_application.Tilmeld> Alist = _service.GetAll();
-            List<Event_application.Tilmeld> Free = Alist.Where(a => a.Bruger_ID == -1).ToList();
+            List<Event_application.Tilmeld> Free = Alist.Where(a => a.Bruger_id == +1).ToList();
             if (Free.Count > 0)
             {
                 Event_application.Tilmeld a = Free[0];
                 //FindId() bruges til at finde den bruger der er logget ind.
-                a.Bruger_ID = _bservice.FindId(_bruger);
+                a.Bruger_id = _bservice.FindId(_bruger);
                 _service.Update(a);
             }
             Antaltilmeldte = Free.Count;
-            return RedirectToPage("Arrangement");
+            return RedirectToPage("Arrangement-index");
 
         }
 

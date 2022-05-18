@@ -25,6 +25,7 @@ namespace Event_application.Services
                 SqlCommand cmd = new SqlCommand(Sql, connection);
                 cmd.Connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
+               
                 while (reader.Read())
                 {
                     Tilmeld a = ReadTilmelding(reader);
@@ -38,7 +39,7 @@ namespace Event_application.Services
         public List<int> GetAllId()
         {
             List<int> list = new List<int>();
-            string sql = "select Bruger_id from Arrangementet WHERE Bruger_id>0";
+            string sql = "select Bestilling_id from Arrangementet WHERE Bestilling_id>0";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -57,11 +58,11 @@ namespace Event_application.Services
         }
 
 
-        public Tilmeld GetbyID(int Bruger_ID)
+        public Tilmeld GetbyID(int Bestilling_id)
         {
 
             Tilmeld a = new Tilmeld();
-            string queryString = $"select * from Arrangementet where Id = {Bruger_ID}";
+            string queryString = $"select * from Arrangementet where Id = {Bestilling_id}";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
@@ -79,7 +80,7 @@ namespace Event_application.Services
         }
 
         //
-        public Tilmeld Create(Tilmeld newTilmeld)
+       /* public Tilmeld Create(Tilmeld newTilmeld)
         {
             string sql = "insert into Arrangementet VALUES(@bestillings_ID, @bruger_ID)";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -96,19 +97,20 @@ namespace Event_application.Services
                 return newTilmeld;
             }
         }
-        private Tilmeld ReadTilmelding(SqlDataReader reader)
+       */
+            private Tilmeld ReadTilmelding(SqlDataReader reader)
         {
             Tilmeld aa = new Tilmeld();
-            aa.Bestillings_ID = reader.GetInt32(0);
-            aa.Bruger_ID = reader.GetInt32(1);
-            if (reader.IsDBNull(2))
+            aa.Bestilling_id = reader.GetInt32(0);
+            aa.Bruger_id = reader.GetInt32(1);
+            if (reader.IsDBNull(1))
             {
-                aa.Bruger_ID = -1;
+                aa.Bruger_id = -1;
 
             }
             else
             {
-                aa.Bruger_ID = reader.GetInt32(2);
+                aa.Bruger_id = reader.GetInt32(1);
             }
             return aa;
         }
@@ -119,13 +121,15 @@ namespace Event_application.Services
         }
         public Tilmeld Update(Tilmeld UpdateTilmeld)
         {
-            string sqlstring = $"Update Arrangementet set Bestillings_ID={UpdateTilmeld.Bestillings_ID}, Bruger_ID={UpdateTilmeld.Bruger_ID}";
+
+            string sqlstring = $"Update Arrangementet set Bestilling_id ={UpdateTilmeld.Bestilling_id}, Bruger_id ={UpdateTilmeld.Bruger_id}";
             Tilmeld Update = (UpdateTilmeld);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlstring, connection);
                 command.Connection.Open();
                 int rows = command.ExecuteNonQuery();
+                
                 if (rows != 1)
                 {
                     throw new Exception("Fejl");
@@ -133,10 +137,12 @@ namespace Event_application.Services
             }
             return UpdateTilmeld;
         }
-        public Tilmeld Delete(int bestillings_ID)
+
+        
+        public Tilmeld Delete(int Bestilling_id)
         {
-            string sqlstring = $"delete from Arrangementet where Id={bestillings_ID}";
-            Tilmeld Delete = GetbyID(bestillings_ID);
+            string sqlstring = $"delete from Arrangementet where Id={Bestilling_id}";
+            Tilmeld Delete = GetbyID(Bestilling_id);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlstring, connection);

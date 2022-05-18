@@ -13,8 +13,8 @@ namespace Event_application
     {
 
         //Instansfelter.
-        private int _bestillings_ID;
-        private int _bruger_ID;
+        private int _bestilling_id;
+        private int _bruger_id;
 
 
         //Constructor
@@ -23,30 +23,35 @@ namespace Event_application
             
         }
         //Constructor der angiver bestillings_ID og bruger_ID (Værdier).
-        public Tilmeld(int bestillings_ID, int bruger_ID)
+        public Tilmeld(int Bestilling_id, int Bruger_id)
         {
-            _bestillings_ID = bestillings_ID;
-            _bruger_ID = bruger_ID;
+            _bestilling_id = Bestilling_id;
+            _bruger_id = Bruger_id;
             
 
         }
         //Get, set for bruger_ID.
-        public int Bruger_ID
+        public int Bruger_id
         {
-            get => _bruger_ID;
-            set => _bruger_ID = value;
+            get => _bruger_id;
+            set => _bruger_id = value;
         }
         //Get, set for bestillings_ID.
-        public int Bestillings_ID
+
+        public int Bestilling_id
         {
-            get => _bestillings_ID;
-            set => _bestillings_ID = value;
+
+
+
+
+            get => _bestilling_id;
+            set => _bestilling_id = value;
         }
         
         //Metode.
         public override string ToString()
         {
-            return $"{nameof(_bestillings_ID)}: {_bestillings_ID}, {nameof(_bruger_ID)}: {_bruger_ID}";
+            return $"{nameof(_bestilling_id)}: {_bestilling_id}, {nameof(_bruger_id)}: {_bruger_id}";
         }
 
 
