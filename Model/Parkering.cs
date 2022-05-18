@@ -31,7 +31,7 @@ namespace Event_application
         /// <param name="parkeringsNummer">Det er reg. nr. på de forskellige kunders biler</param>
         /// <param name="brugerID">Det er et brugerID, der viser de forskellige brugers indentitet</param>
 
-        public Parkering(int parkeringsId, int parkeringsNummer)
+        public Parkering(int parkeringsId, int parkeringsNummer, int brugerID)
         {
             _parkeringsID = parkeringsId;
             _parkeringsNummer = parkeringsNummer;

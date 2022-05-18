@@ -115,13 +115,7 @@ namespace Event_application.Services
             int i = reader.GetInt32(0);
             return i;
         }
-        /*
-        public Parkering Read()
-        {
-            // Todo Tilføj Read til metode når det nødvendige til det, er på plads
-        }
-        */
-
+        
         /// <summary>
         /// En metode, som bruges til at opdaterer vores parkeringspladser 
         /// </summary>
