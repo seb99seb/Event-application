@@ -86,7 +86,11 @@ namespace Event_application.Services
 
             return p;
         }
-
+        /// <summary>
+        /// En metode der bruges til at vise de ledige parkeringspladser der er tilbage
+        /// </summary>
+        /// <param name="reader">Den struktur der indeholder resultatstabellen</param>
+        /// <returns>ledige parkeringspladser</returns>master2
         private Parkering ReadParkering(SqlDataReader reader)
         {
             Parkering pp = new Parkering();
@@ -109,8 +113,6 @@ namespace Event_application.Services
             int i = reader.GetInt32(0);
             return i;
         }
-       
-
         /// <summary>
         /// En metode, som bruges til at opdaterer vores parkeringspladser 
         /// </summary>
