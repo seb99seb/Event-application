@@ -120,56 +120,6 @@ namespace Event_application.Services
 
             return pp;
         }
-        /*
-        public Parkering Update(Parkering updateParkering)
-        {
-            string sqlString = $"Update Parkering set Parkering_id ={updateParkering.ParkeringsID}, Parkeringsplads_nummer = {updateParkering.ParkeringsNummer}, Bruger_id = {updateParkering.BrugerID} where Parkering_id = {updateParkering.ParkeringsID}";
-
-
-            Parkering Update = (updateParkering);
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(sqlString, connection);
-                command.Connection.Open();
-
-
-                int rows = command.ExecuteNonQuery();
-
-                if (rows != 1)
-                {
-                    throw new Exception("dab");
-                }
-
-            }
-
-            return updateParkering;
-        }
-        */
-        /*
-        public Parkering Delete(int id)
-        {
-            string sqlString = $"delete from Parkering Where Id = {id}";
-            Parkering Delete = GetbyId(id);
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(sqlString, connection);
-                command.Connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-
-                int rows = command.ExecuteNonQuery();
-
-                if (rows != 1)
-                {
-                    throw new Exception("dab");
-                }
-
-
-            }
-
-            return Delete;
-        }
-        */
         public void Create(int bruger_id)
         {
             string queryString = $"INSERT INTO VIP (Bruger_id) VALUES ('{bruger_id}')";
