@@ -87,33 +87,6 @@ namespace Event_application.Services
             return p;
         }
 
-        //public Parkering Create(Parkering newParkering)
-        //{
-        //    string sql = "insert into Parkering VALUES(@name, @v2, @v3)";
-
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        SqlCommand cmd = new SqlCommand(sql, connection);
-        //        cmd.Connection.Open();
-
-        //        cmd.Parameters.AddWithValue("@name", newParkering.ParkeringsID);
-
-        //        int rows = cmd.ExecuteNonQuery();
-
-        //        if (rows != 1)
-        //        {
-        //            throw new Exception("dab");
-        //        }
-
-        //        return newParkering;
-        //    }
-        //}
-
-        /// <summary>
-        /// En metode der bruges til at vise de ledige parkeringspladser der er tilbage
-        /// </summary>
-        /// <param name="reader">Den struktur der indeholder resultatstabellen</param>
-        /// <returns>ledige parkeringspladser</returns>
         private Parkering ReadParkering(SqlDataReader reader)
         {
             Parkering pp = new Parkering();
@@ -136,12 +109,7 @@ namespace Event_application.Services
             int i = reader.GetInt32(0);
             return i;
         }
-        /*
-        public Parkering Read()
-        {
-            // Todo Tilføj Read til metode når det nødvendige til det, er på plads
-        }
-        */
+       
 
         /// <summary>
         /// En metode, som bruges til at opdaterer vores parkeringspladser 
