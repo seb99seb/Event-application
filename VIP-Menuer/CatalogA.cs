@@ -7,12 +7,12 @@ using Event_application.Model;
 namespace Event_application.VIP_Menuer
 {
     /// <summary>
-    /// Model klassen indholder en Dictionatry liste med id, navn, beskrivelse, pris og billede
+    /// Klassen indholder en Dictionatry liste med id, navn, beskrivelse, pris og billede
     /// </summary>
     public class CatalogA
     {
         /// <summary>
-        /// Henter objekter fra model klassen "almindelig" til en dictionary, ved at bruge get
+        /// Henter objekter fra model klassen "almindelig" til en dictionary, ved at bruge af get
         /// </summary>
         private Dictionary<int, Almindelig> almindelig { get; }
 
@@ -22,10 +22,10 @@ namespace Event_application.VIP_Menuer
         public CatalogA()
         {
             almindelig = new Dictionary<int, Almindelig>();
-            almindelig.Add(1, new Almindelig() { Id = 1, Navn = "Burger", Beskrivelse = "hakkebøf, ost, agurk, tomat, løg, dressing", Pris = 45, Billede = "Burger alm.jpg" });
-            almindelig.Add(2, new Almindelig() { Id = 2, Navn = "Pitabrød", Beskrivelse = "tomat, agurk, salat, gulerødder og oksekød", Pris = 30, Billede = "Pitabrod alm.jpg" });
-            almindelig.Add(3, new Almindelig() { Id = 3, Navn = "Kebab", Beskrivelse = "tomat, agurk, salat og kebabkød", Pris = 45, Billede = "Kebab alm.jpg" });
-            almindelig.Add(4, new Almindelig() { Id = 4, Navn = "Pizza", Beskrivelse = "tomatsovs, piberfrugt, ost, kødsovs og pepperoni", Pris = 45, Billede = "Pizza alm.jpg" });
+            almindelig.Add(1, new Almindelig() { Id = 1, Navn = "Burger", Beskrivelse = "Hakkebøf, ost, agurk, tomat, løg, dressing", Pris = 45, Billede = "Burger alm.jpg" });
+            almindelig.Add(2, new Almindelig() { Id = 2, Navn = "Pitabrød", Beskrivelse = "Tomat, agurk, salat, gulerødder og oksekød", Pris = 30, Billede = "Pitabrod alm.jpg" });
+            almindelig.Add(3, new Almindelig() { Id = 3, Navn = "Kebab", Beskrivelse = "Tomat, agurk, salat og kebabkød", Pris = 45, Billede = "Kebab alm.jpg" });
+            almindelig.Add(4, new Almindelig() { Id = 4, Navn = "Pizza", Beskrivelse = "Tomatsovs, piberfrugt, ost, kødsovs og pepperoni", Pris = 45, Billede = "Pizza alm.jpg" });
 
         }
 
