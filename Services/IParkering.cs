@@ -32,10 +32,6 @@ namespace Event_application.Services
 
         // CRUD
 
-        //T Create(T newParkering);
-
-        //T Read(); //Todo Tilføj Read til CRUD, når vi har de nødvendige informationer til at lave den.
-
         /// <summary>
         /// En generisk metode, hvor man kan opdatere kundernes parkeringsplads.
         /// </summary>
