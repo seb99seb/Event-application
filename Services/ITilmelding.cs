@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace Event_application.Services
 {
     //Model klasse (Interface), der indeholder CRUD samt en generisk liste.
-    public interface ITilmeldingGeneric<A>
+    public interface ITilmeldingGeneric<T>
     {
-        List<A> GetAll();
-        A GetbyID(int Bestilling_id);
+        List<T> GetAll();
+        T GetbyID(int Bestilling_id);
         List<int> GetAllId();
-        // A Read();
-       A Update(A updateTilmeld);
-        A Delete(int Bestilling_id);
+        
+        int deleteTilmelding(int Bestilling_id);
+        int PostBrugerTilArrangement(T Tilmeld);
 
 
     }

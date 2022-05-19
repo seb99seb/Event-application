@@ -7,6 +7,7 @@ using Event_application.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Event_application.Model;
+using System.Data.SqlClient;
 
 
 
@@ -15,13 +16,12 @@ namespace Event_application.Pages.Arrangement
 {
     public class Arrangement_indexModel : PageModel
     {
-        public int Antaltilmeldte { get; set; }
-        public ITilmeldingGeneric<Event_application.Tilmeld> _service;
-        private Bruger _bruger;
+
+        public int AntalTilmdinger { get; set; }
+        private ITilmeldingGeneric<Event_application.Tilmeld> _service;
         private BService _bservice;
+        private Bruger _bruger;
 
-
-       
         public Arrangement_indexModel(ITilmeldingGeneric<Event_application.Tilmeld> service, Bruger bruger, BService bService)
         {
             _service = service;
@@ -34,15 +34,10 @@ namespace Event_application.Pages.Arrangement
         [BindProperty] public bool Signed { get; set; }
 
 
-        //if (d < 500) gør at der skal være under 500 tilmeldte før man selv kan tilmelde sig begivenheden. 
         public IActionResult OnGet()
         {
             List<int> List = _service.GetAllId();
-            int d = List.Count();
-            if (d == 90)
-            {
-                Limit = true;
-            }
+            int j = List.Count();
             
             int var = _bservice.FindId(_bruger);
             foreach (int i in List)
@@ -53,27 +48,44 @@ namespace Event_application.Pages.Arrangement
                 }
             }
             List<Event_application.Tilmeld> Alist = _service.GetAll();
-            List<Event_application.Tilmeld> Free = Alist.Where(a => a.Bruger_id == +1).ToList();
-            Antaltilmeldte = Free.Count;
+            List<Event_application.Tilmeld> Free = Alist.ToList();
+            AntalTilmdinger = Free.Count;
             Loggedin = _bruger.LoggedIn;
             return Page();
         }
-        public IActionResult OnPost()
+        public IActionResult OnPostTilmeld()
         {
             List<Event_application.Tilmeld> Alist = _service.GetAll();
-            List<Event_application.Tilmeld> Free = Alist.Where(a => a.Bruger_id == +1).ToList();
+            List<Event_application.Tilmeld> Free = Alist.ToList();
             if (Free.Count > 0)
             {
                 Event_application.Tilmeld a = Free[0];
-                //FindId() bruges til at finde den bruger der er logget ind.
+                //FindId() metode bruges til at finde bruger_id af den bruger som er logget ind
                 a.Bruger_id = _bservice.FindId(_bruger);
-                _service.Update(a);
+                _service.PostBrugerTilArrangement(a);
             }
-            Antaltilmeldte = Free.Count;
+            AntalTilmdinger = Free.Count;
             return RedirectToPage("Arrangement-index");
-
         }
+        
+        public IActionResult OnPostDelete()
+        {
+            int bruger_Id = _bservice.FindId(_bruger);
+            Console.WriteLine(bruger_Id);
+            _service.deleteTilmelding(bruger_Id);
 
+            return RedirectToPage("Arrangement-index");
+        }
     }
+
+
 }
+
+
+            
+
+
+        
+
+
 
