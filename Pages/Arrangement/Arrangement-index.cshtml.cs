@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Event_application.Pages
+namespace Event_application.Pages.Arrangement
 {
     public class Arrangement_indexModel : PageModel
     {
