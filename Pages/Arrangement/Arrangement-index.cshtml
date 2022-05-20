@@ -35,26 +35,21 @@
             @if (Model.Signed)
             {
                 <a>Du er allerede tilmeldt begivenheden</a>
-                        <form method="post" >
-                <input type="submit" onPost="OnPostDelete" value="Aflys Tilmelding" class="btn btn-danger" />
-                        </form>
+                       // <form method="post" >
+               // <input type="submit" onPost="OnPostDelete" value="Aflys Tilmelding" class="btn btn-danger" />
+                 //       </form>
             }
-            else if (Model.Loggedin && Model.Limit == false)
+                else if (Model.Loggedin && Model.Limit == false)
             {
                         <form method="post">
-                <input type="submit" onPost="OnPostTilmeld" value="Tilmeld" class="btn btn-primary" />
+                <input type="submit" value="Tilmeld" class="btn btn-primary" />
                         </form>
             }
-            else
+                else
             {
                 <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
             }
 
-            <!-- i tilf�lde af vi skal have en knap til at aflyse hvis der er for mange. -->
-            <!-- else if (Model.Loggedin && Model.Limit == true)
-            {
-                <input type="submit2" value="Aflys Tilmelding" class="btn btn-primary" />
-            } -->
     </div>
 
 

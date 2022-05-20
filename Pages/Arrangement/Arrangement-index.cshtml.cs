@@ -57,7 +57,7 @@ namespace Event_application.Pages.Arrangement
             Loggedin = _bruger.LoggedIn;
             return Page();
         }
-        public IActionResult OnPostTilmeld()
+        public IActionResult OnPost()
         {
             //Igen laver vi en liste, der indeholder alle informationer i databasen. Vi siger her at vi vil add til listen.
             List<Event_application.Tilmeld> Alist = _service.GetAll();
