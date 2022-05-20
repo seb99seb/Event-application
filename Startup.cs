@@ -30,6 +30,8 @@ namespace Event_application
             services.AddSingleton<IParkeringGeneric<Parkering>, PService>();
             services.AddSingleton<Bruger, Bruger>();
             services.AddSingleton<BService, BService>();
+            services.AddSingleton<AService, AService>();
+            services.AddSingleton<ITilmeldingGeneric<Tilmeld>, AService>();
             services.AddSingleton<TService, TService>();
         }
 
