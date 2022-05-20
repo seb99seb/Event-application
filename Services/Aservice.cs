@@ -63,7 +63,7 @@ namespace Event_application.Services
         {
 
             Tilmeld a = new Tilmeld();
-            string queryString = $"select * from Arrangementet where Id = {id}";
+            string queryString = $"select * from Arrangementet where Bruger_id = {id}";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
@@ -135,17 +135,17 @@ namespace Event_application.Services
             
         }
 
-        
+       /* 
         public int deleteTilmelding(int Bestilling_id)
         {
-            string sqlstring = $"delete from Arrangementet where Id={Bestilling_id}";
+            string sqlstring = $"delete from Arrangementet where Bestilling_id={Bestilling_id}";
             Tilmeld Delete = GetbyID(Bestilling_id);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlstring, connection);
                 command.Connection.Open();
                 command.ExecuteNonQuery();
-                connection.Close();
+                
                 int rows = command.ExecuteNonQuery();
                 if (rows != 1)
                 {
@@ -157,6 +157,7 @@ namespace Event_application.Services
             return 0;
 
         }
+       */
 
         public Boolean CheckOmBrugerFindes(int Bruger_id)
         {
