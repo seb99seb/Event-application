@@ -4,23 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 
 namespace Event_application.Model
 {
+    /// <summary>
+    /// Model klassen indholder id, navn, beskrivelse, pris og billede
+    /// </summary>
     public class Almindelig
     {
-        /*
-         * Instansfelter 
-         */
+        /// <summary>
+        /// Instandsfelter, som har til formål at gemme værdierne id, navn, beskrivelse, pris og billede
+        /// </summary>
         private int _id;
         private string _navn;
         private string _beskrivelse;
         private double _pris;
         private string _billede;
 
-        /*
-         * Konstruktører
-         */
+        /// <summary>
+        /// Konstruktørerne er dem der laver følgende objekter, uden værdier 
+        /// </summary>
+        /// <param name="id">Id er nummer i på en ret den almindelige menu</param>
+        /// <param name="navn"> Navn på retter i den almindelige menu</param>
+        /// <param name="beskrivelse"> En kort beskrivelse om retterne i den almindelige menu </param>
+        /// <param name="pris">Viser prisen på retter i den almindelige menu </param>
+        /// <param name="billede"> viser billeder af retter i den almindelige menu en</param>
 
         public Almindelig(int id, string navn, string beskrivelse, double pris, string billede)
         {
@@ -31,14 +40,23 @@ namespace Event_application.Model
             _billede = billede;
         }
 
-        /*
-         * Properties 
-         */
 
+        /// <summary>
+        /// Properties dem, der henter og sætter id, navn, beskrivelse, pris og billede
+        /// </summary>
         public int Id
         {
             get => _id;
-            set => _id = value;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Id skal være null eller posetiv ");
+                }
+
+                _id = value;
+            }
+
         }
 
         public string Navn
@@ -72,7 +90,7 @@ namespace Event_application.Model
                 }
                 if (value.Length < 10)
                 {
-                    throw new ArgumentException("Beskrivelse skal være 10 teg lang");
+                    throw new ArgumentException("Beskrivelse skal være minst 10 tegn lang");
                 }
                 _beskrivelse = value;
             }
@@ -95,19 +113,33 @@ namespace Event_application.Model
         public string Billede
         {
             get => _billede;
-            set => _billede = value;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Billede skal være minst 4 karakter lang ");
+                }
+
+                if (value.Length < 4)
+                {
+                    throw new ArgumentException("billede skal være mindst 4 karakter lang");
+                }
+
+                _billede = value;
+            }
         }
 
-        /*
-         * Defult konstruktører - Med værdier 
-         */
+        /// <summary>
+        /// Defult konstruktørerne er dem laver laver objekterne med værdier
+        /// </summary>
         public Almindelig() : this(1, "Burger", "hakkebøf, ost, agurk, tomat, løg, dressing", 30, "Burgerbillede")
         {
         }
 
-        /*
-         * Metode - ToString 
-         */
+        /// <summary>
+        /// ToString metoden er til at gennemlæse alle objekterne igennem: id, navn, beskrivelse, pris og billede
+        /// </summary>
+        /// <returns>Returnere alle objekterne i systemet</returns>
 
         public override string ToString()
         {

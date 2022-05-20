@@ -9,28 +9,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Event_application.Model;
 using System.Data.SqlClient;
 
-
-
-
 namespace Event_application.Pages.Arrangement
 {
     public class Arrangement_indexModel : PageModel
     {
-
         //instans felt
         public int AntalTilmeldinger { get; set; }
         private ITilmeldingGeneric<Event_application.Tilmeld> _service;
         private BService _bservice;
         private Bruger _bruger;
 
-        //konstruktør - der henter Singleton værdier
+        //konstruktï¿½r - der henter Singleton vï¿½rdier
         public Arrangement_indexModel(ITilmeldingGeneric<Event_application.Tilmeld> service, Bruger bruger, BService bService)
         {
             _service = service;
             _bruger = bruger;
             _bservice = bService;
         }
-        //værdier som skal bruges til at hente informationen der blev skrevet af brugeren på siden
+        //vï¿½rdier som skal bruges til at hente informationen der blev skrevet af brugeren pï¿½ siden
         [BindProperty] public bool Loggedin { get; set; }
         [BindProperty] public List<int> List { get; set; }
         [BindProperty] public bool Limit { get; set; }
@@ -39,7 +35,7 @@ namespace Event_application.Pages.Arrangement
 
         public IActionResult OnGet()
         {
-            //Vi henter en liste over alle brugerer i databasen, som vi så tæller.
+            //Vi henter en liste over alle brugerer i databasen, som vi sï¿½ tï¿½ller.
             List<int> List = _service.GetAllId();
             int j = List.Count();
 
@@ -47,16 +43,16 @@ namespace Event_application.Pages.Arrangement
             int var = _bservice.FindId(_bruger);
             foreach (int i in List)
             {
-                //Hvis det er et match kører vi processen.
+                //Hvis det er et match kï¿½rer vi processen.
                 if (i == var)
                 {
                     Signed = true;
                 }
             }
-            //Vi henter alle informationer fra databasen, og tilføjer dem til en liste "Alist".
+            //Vi henter alle informationer fra databasen, og tilfï¿½jer dem til en liste "Alist".
             List<Event_application.Tilmeld> Alist = _service.GetAll();
             List<Event_application.Tilmeld> Free = Alist.ToList();
-            //Vi tæller listen med "Antaltilmeldinger" for at se hvor mange der har tilmeldt sig begivenheden.
+            //Vi tï¿½ller listen med "Antaltilmeldinger" for at se hvor mange der har tilmeldt sig begivenheden.
             AntalTilmeldinger = Free.Count;
             Loggedin = _bruger.LoggedIn;
             return Page();
@@ -71,10 +67,10 @@ namespace Event_application.Pages.Arrangement
                 Event_application.Tilmeld a = Free[0];
                 //FindId() metode bruges til at finde bruger_id af den bruger som er logget ind
                 a.Bruger_id = _bservice.FindId(_bruger);
-                //Vi kører postBrugerTilARrangement - der tilføjer brugeren til arrangementet databasen.
+                //Vi kï¿½rer postBrugerTilARrangement - der tilfï¿½jer brugeren til arrangementet databasen.
                 _service.PostBrugerTilArrangement(a);
             }
-            //Igen har vi antallet af tilmeldinger, der kan fremvises på siden.
+            //Igen har vi antallet af tilmeldinger, der kan fremvises pï¿½ siden.
             AntalTilmeldinger = Free.Count;
             return RedirectToPage("Arrangement-index");
         }
@@ -84,7 +80,7 @@ namespace Event_application.Pages.Arrangement
             //Vi finder brugeren i "FindId". 
             int bruger_Id = _bservice.FindId(_bruger);
             Console.WriteLine(bruger_Id);
-            //Vi sletter brugere ved hjælp af "deleteTilmelding" der ligger i aservice.
+            //Vi sletter brugere ved hjï¿½lp af "deleteTilmelding" der ligger i aservice.
             _service.deleteTilmelding(bruger_Id);
 
             return RedirectToPage("Arrangement-index");

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Event_application.Model
 {
+
+    /// <summary>
+    /// Model klassen indholder id, navn, beskrivelse, pris og billede
+    /// </summary>
     public class Vegansk
     {
-        /*
-         * Instansfelter 
-         */
+        /// <summary>
+        /// Instandsfelter, som har til formål at gemme værdierne id, navn, beskrivelse, pris og billede
+        /// </summary>
         private int _id;
         private string _navn;
         private string _beskrivelse;
@@ -18,9 +22,14 @@ namespace Event_application.Model
         private string _billede;
 
 
-        /*
-         * konstruktører
-         */
+        /// <summary>
+        /// Konstruktørerne er dem der laver følgende objekter, uden værdier 
+        /// </summary>
+        /// <param name="id">Id er nummer i på en ret den veganske menu</param>
+        /// <param name="navn"> Navn på retter i den veganske menu</param>
+        /// <param name="beskrivelse"> En kort beskrivelse om retterne i den veganske menu </param>
+        /// <param name="pris">Viser prisen på retter i den veganske menu </param>
+        /// <param name="billede"> viser billeder af retter i den veganske menu en</param>
         public Vegansk(int id, string navn, string beskrivelse, double pris, string billede)
         {
             _id = id;
@@ -31,9 +40,9 @@ namespace Event_application.Model
         }
 
 
-        /*
-         * Properties 
-         */
+        /// <summary>
+        /// Properties dem, der henter og sætter id, navn, beskrivelse, pris og billede
+        /// </summary>
         public int Id
         {
             get => _id;
@@ -95,16 +104,18 @@ namespace Event_application.Model
             set => _billede = value;
         }
 
-        /*
-         * Defult konstruktører
-         */
+        /// <summary>
+        /// Defult konstruktørerne er dem laver laver objekterne med værdier
+        /// </summary>
         public Vegansk() : this(2, "Vegansk Burger", "tomas, agurk, salat og grønne linser", 45, "burgerBillede")
         {
         }
 
-        /*
-         * Metode
-         */
+
+        /// <summary>
+        /// ToString metoden er til at gennemlæse alle objekterne igennem: id, navn, beskrivelse, pris og billede
+        /// </summary>
+        /// <returns>Returnere alle objekterne i systemet</returns>
         public override string ToString()
         {
             return $"{nameof(_id)}: {_id}, {nameof(_navn)}: {_navn}, {nameof(_beskrivelse)}: {_beskrivelse}, {nameof(_pris)}: {_pris}, {nameof(_billede)}: {_billede}";

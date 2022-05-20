@@ -3,7 +3,7 @@
 @{
 }
 
-<h1>Tour De France</h1>
+<h1>Velkommen til vores VIP-Lounge</h1>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,6 @@
 
 <h6>Hvis du gerne vil have en mere luksuriøs oplevelse under Tour De France 2022, vil vores eksklusive VIP Lounges på pladsen sørge for at sætte nogle uforglemmelige rammer under Tour De France, der kommer til Roskilde 2022. Du og dine gæster kan se frem til verdensklasse sport og en oplevelse for livet. Vores VIP Lounges' eksklusive interiør og imponerende udsigt til arenaerne, giver den perfekte mulighed for at opleve de bedste atleter konkurrere om guldet, mens I nyder lækkert mad og drikke hele dagen.</h6>
 
-<!DOCTYPE html>
 <html>
 <head>
     <title>Title of the document</title>
@@ -35,32 +34,47 @@
     </style>
 </head>
 <body>
-    <a href="VIP/" class="button">MENU</a>
+    <a href="VIP/" class="button">Menu</a>
 </body>
 </html>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Title of the document</title>
-    <style>
-        .button {
-            background-color: #1c87c9;
-            border: none;
-            color: white;
-            padding: 20px 34px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-<a href="/VIP-Tilmeld/VIP-Tilmelding" class="button">TILMELD </a>
-</body>
+@if (Model.Signed)
+{
+    <a>Du har alleredet tilkøbt en plads i VIP-loungen</a>
+}
+else if (Model.Loggedin)
+{
+    <html>
+    <head>
+        <style>
+            .button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 32px;
+                margin: 8px 4px;
+                cursor: pointer;
+            }
+
+            .button2 {
+                background-color: #008CBA;
+            }
+            /* Blue */
+        </style>
+    </head>
+    <body>
+
+        <a href="VIP-Tilmelding/" class="button">TILMELD</a>
+
+    </body>
 </html>
+}
+else
+{
+<a>Du skal logge ind for at kunne tilkøbe en plads i VIP-loungen</a>
+}
 
 

@@ -32,6 +32,7 @@ namespace Event_application
             services.AddSingleton<BService, BService>();
             services.AddSingleton<AService, AService>();
             services.AddSingleton<ITilmeldingGeneric<Tilmeld>, AService>();
+            services.AddSingleton<TService, TService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
