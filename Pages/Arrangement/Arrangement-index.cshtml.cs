@@ -57,7 +57,7 @@ namespace Event_application.Pages.Arrangement
             Loggedin = _bruger.LoggedIn;
             return Page();
         }
-        public IActionResult OnPost()
+        public IActionResult OnPostTilmeld()
         {
             //Igen laver vi en liste, der indeholder alle informationer i databasen. Vi siger her at vi vil add til listen.
             List<Event_application.Tilmeld> Alist = _service.GetAll();
@@ -74,8 +74,8 @@ namespace Event_application.Pages.Arrangement
             AntalTilmeldinger = Free.Count;
             return RedirectToPage("Arrangement-index");
         }
-        /*
-        public IActionResult OnPostDelete()
+        
+        /*public IActionResult OnPostDelete()
         {
             //Vi finder brugeren i "FindId". 
             int bruger_Id = _bservice.FindId(_bruger);
@@ -85,11 +85,11 @@ namespace Event_application.Pages.Arrangement
 
             return RedirectToPage("Arrangement-index");
         }
-    }
         */
+    }
+        
 
     }
-}
 
 
             

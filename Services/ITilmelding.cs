@@ -13,7 +13,7 @@ namespace Event_application.Services
         T GetbyID(int Bestilling_id);
         List<int> GetAllId();
         
-        //int deleteTilmelding(int Bestilling_id);
+       // int deleteTilmelding(int Bestilling_id);
         int PostBrugerTilArrangement(T Tilmeld);
 
 

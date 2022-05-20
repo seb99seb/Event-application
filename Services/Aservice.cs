@@ -135,8 +135,7 @@ namespace Event_application.Services
             
         }
 
-       /* 
-        public int deleteTilmelding(int Bestilling_id)
+             /*  public int deleteTilmelding(int Bestilling_id)
         {
             string sqlstring = $"delete from Arrangementet where Bestilling_id={Bestilling_id}";
             Tilmeld Delete = GetbyID(Bestilling_id);
@@ -147,18 +146,15 @@ namespace Event_application.Services
                 command.ExecuteNonQuery();
                 
                 int rows = command.ExecuteNonQuery();
-                if (rows != 1)
-                {
-                    throw new Exception("Fejl");
-                }
+                
 
 
             }
             return 0;
 
         }
-       */
-
+       
+        */
         public Boolean CheckOmBrugerFindes(int Bruger_id)
         {
             string sqlstring = $"Select * from Arrangementet WHERE Bruger_id={Bruger_id}";
