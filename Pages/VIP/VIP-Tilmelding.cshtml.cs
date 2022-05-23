@@ -63,6 +63,5 @@ namespace Event_application.Pages
         {
             return RedirectToPage("VIP-Lounge");
         }
-
     }
 }

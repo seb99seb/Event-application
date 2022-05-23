@@ -19,6 +19,14 @@
     <div class="form-group">
         <input type="text" asp-for="email" placeholder="Email" />
     </div>
+    @if (Model.Symbol)
+    {
+        <p>Du skal have et @@ i din email</p>
+    }
+    @if (Model.IsNull)
+    {
+        <p>Et eller flere felter mangler at blive udfyldt</p>
+    }
     <div class="form-group">
         <input type="submit" value="Lav Bruger" />
     </div>

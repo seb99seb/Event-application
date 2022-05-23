@@ -3,7 +3,7 @@
 @{
 }
 
-<form method="post">
+<form method="post" asp-page-handler="Login">
     <div class="form-group">
         <input type="text" asp-for="username" placeholder="Brugernavn" />
     </div>
@@ -14,6 +14,8 @@
         <input type="submit" value="Log in" />
     </div>
 </form>
-<div class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-page="NyBruger">Opret Bruger</a>
-</div>
+<form method="post" asp-page-handler="Ny">
+    <div class="form-group">
+        <input type="submit" value="Opret Bruger" />
+    </div>
+</form>
