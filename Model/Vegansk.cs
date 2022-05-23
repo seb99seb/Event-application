@@ -10,7 +10,7 @@ namespace Event_application.Model
     /// <summary>
     /// Model klassen indholder id, navn, beskrivelse, pris og billede
     /// </summary>
-    public class Vegansk
+    public class Vegansk:Menuvare
     {
         /// <summary>
         /// Instandsfelter, som har til formål at gemme værdierne id, navn, beskrivelse, pris og billede
@@ -30,78 +30,9 @@ namespace Event_application.Model
         /// <param name="beskrivelse"> En kort beskrivelse om retterne i den veganske menu </param>
         /// <param name="pris">Viser prisen på retter i den veganske menu </param>
         /// <param name="billede"> viser billeder af retter i den veganske menu en</param>
-        public Vegansk(int id, string navn, string beskrivelse, double pris, string billede)
+        public Vegansk(int id, string navn, string beskrivelse, double pris, string billede):base(id,navn,beskrivelse,pris,billede)
         {
-            _id = id;
-            _navn = navn;
-            _beskrivelse = beskrivelse;
-            _pris = pris;
-            _billede = billede;
-        }
-
-
-        /// <summary>
-        /// Properties dem, der henter og sætter id, navn, beskrivelse, pris og billede
-        /// </summary>
-        public int Id
-        {
-            get => _id;
-            set => _id = value;
-        }
-
-        public string Navn
-        {
-            get => _navn;
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentNullException("Navn skal være længere end 3 tegn lang");
-
-                }
-                if (value.Length < 3)
-                {
-                    throw new ArgumentException("Navn skal være længere end 3 tegn lang");
-                }
-                _navn = value;
-            }
-        }
-
-        public string Beskrivelse
-        {
-            get => _beskrivelse;
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentNullException("Beskrivelse skal være mindt 10 tegn lang ");
-
-                }
-                if (value.Length < 10)
-                {
-                    throw new ArgumentException("Beskrivelse skal være 10 teg lang");
-                }
-                _beskrivelse = value;
-            }
-        }
-
-        public double Pris
-        {
-            get => _pris;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException(" Prisen skal være null eller posetiv");
-                }
-                _pris = value;
-            }
-        }
-
-        public string Billede
-        {
-            get => _billede;
-            set => _billede = value;
+            
         }
 
         /// <summary>
@@ -118,7 +49,7 @@ namespace Event_application.Model
         /// <returns>Returnere alle objekterne i systemet</returns>
         public override string ToString()
         {
-            return $"{nameof(_id)}: {_id}, {nameof(_navn)}: {_navn}, {nameof(_beskrivelse)}: {_beskrivelse}, {nameof(_pris)}: {_pris}, {nameof(_billede)}: {_billede}";
+            return $"{nameof(Id)}: {Id}, {nameof(Navn)}: {Navn}, {nameof(Beskrivelse)}: {Beskrivelse}, {nameof(Pris)}: {Pris}, {nameof(Billede)}: {Billede}";
         }
     }
 }

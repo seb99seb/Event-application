@@ -74,13 +74,17 @@ namespace Event_application.Pages.Arrangement
             AntalTilmeldinger = Free.Count;
             return RedirectToPage("Arrangement-index");
         }
+        public IActionResult OnPostProgram()
+        {
+            return RedirectToPage("../ArrangementProgram/ArrangementProgram");
+        }
         
         /*public IActionResult OnPostDelete()
         {
             //Vi finder brugeren i "FindId". 
             int bruger_Id = _bservice.FindId(_bruger);
             Console.WriteLine(bruger_Id);
-            //Vi sletter brugere ved hj�lp af "deleteTilmelding" der ligger i aservice.
+            //Vi sletter brugere ved hjælp af "deleteTilmelding" der ligger i aservice.
             _service.deleteTilmelding(bruger_Id);
 
             return RedirectToPage("Arrangement-index");

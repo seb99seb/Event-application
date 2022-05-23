@@ -15,30 +15,41 @@
 <p>
     Lørdag den 2. juli 2022 kommer verdens største cykelløb, Tour de France, til Fjordlandet, når Grand Départ-rytterne cykler igennem den naturskønne destination. Roskilde er startby for 2. étape af Tour de France og herefter går touren gennem Lejre, inden feltet fortsætter de 202 km mod målbyen Nyborg. Flere milliarder seere fra 190 lande ser med, når Grand Départ-rytterne suser gennem Fjordlandet – og du er naturligvis inviteret til at tage del i den gule folkefest, som for alvor skydes i gang 100 dage før tour-starten.
 </p>
-    <div class="col-sm">
 
-            <a>Tilmeldingsoversigt</a>
-            <p>Antal tilmeldinger:  @Model.AntalTilmeldinger</p>
-            @if (Model.Signed)
-            {
-                <a>Du er allerede tilmeldt begivenheden</a>
-               <!--
-                   <form method="post" asp-page-handler="Delete">
-               <input type="submit" onPost="OnPostDelete" value="Aflys Tilmelding" class="btn btn-danger" />
-                        </form>
+<div class="col-sm">
 
-               -->
-                       
-            }
-                else if (Model.Loggedin && Model.Limit == false)
-            {
-                        <form method="post" asp-page-handler="Tilmeld">
-                <input type="submit" value="Tilmeld" class="btn btn-primary" />
-                        </form>
-            }
-                else
-            {
-                <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
-            }
+    <form method="post" asp-page-handler="Program">
+        <input type="submit" value="Arrangementets program" class="btn btn-primary" />
+    </form>
 
-    </div>
+    <a>Tilmeldingsoversigt</a>
+    <br />
+
+    <p>Antal tilmeldinger:  @Model.AntalTilmeldinger</p>
+
+
+    <p> Her kan du tilmelde dig begivenheden</p>
+    <br />
+    @if (Model.Signed)
+    {
+        <a>Du er allerede tilmeldt begivenheden</a>
+        <!--
+            <form method="post" asp-page-handler="Delete">
+        <input type="submit" onPost="OnPostDelete" value="Aflys Tilmelding" class="btn btn-danger" />
+                 </form>
+
+        -->
+
+    }
+    else if (Model.Loggedin && Model.Limit == false)
+    {
+        <form method="post" asp-page-handler="Tilmeld">
+            <input type="submit" value="Tilmeld" class="btn btn-primary" />
+        </form>
+    }
+    else
+    {
+        <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
+    }
+
+</div>
