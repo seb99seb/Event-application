@@ -141,7 +141,6 @@ namespace Event_application.Services
 
             return updateParkering;
         }
-
         /// <summary>
         /// En metode, som bruges til at slette vores parkeringspladser
         /// </summary>

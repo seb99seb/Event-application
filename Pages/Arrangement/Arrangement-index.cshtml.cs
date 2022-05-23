@@ -19,14 +19,14 @@ namespace Event_application.Pages.Arrangement
         private BService _bservice;
         private Bruger _bruger;
 
-        //konstrukt�r - der henter Singleton v�rdier
+        //konstruktør - der henter Singleton værdier
         public Arrangement_indexModel(ITilmeldingGeneric<Event_application.Tilmeld> service, Bruger bruger, BService bService)
         {
             _service = service;
             _bruger = bruger;
             _bservice = bService;
         }
-        //v�rdier som skal bruges til at hente informationen der blev skrevet af brugeren p� siden
+        //værdier som skal bruges til at hente informationen der blev skrevet af brugeren p� siden
         [BindProperty] public bool Loggedin { get; set; }
         [BindProperty] public List<int> List { get; set; }
         [BindProperty] public bool Limit { get; set; }

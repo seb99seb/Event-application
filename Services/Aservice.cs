@@ -103,7 +103,6 @@ namespace Event_application.Services
         }
 
        
-        
         public int PostBrugerTilArrangement(Tilmeld postTilmeld)
         {
             string sqlstring = $"Insert into Arrangementet VALUES( {postTilmeld.Bruger_id})";
