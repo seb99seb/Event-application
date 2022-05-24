@@ -10,9 +10,7 @@ namespace Event_application.Services
     public interface ITilmeldingGeneric<T>
     {
         List<T> GetAll();
-        T GetbyID(int Bestilling_id);
         List<int> GetAllId();
-        
        // int deleteTilmelding(int Bestilling_id);
         int PostBrugerTilArrangement(T Tilmeld);
 
