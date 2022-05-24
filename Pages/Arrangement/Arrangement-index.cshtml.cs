@@ -19,14 +19,14 @@ namespace Event_application.Pages.Arrangement
         private BService _bservice;
         private Bruger _bruger;
 
-        //konstrukt�r - der henter Singleton v�rdier
+        //konstruktør - der henter Singleton værdier
         public Arrangement_indexModel(ITilmeldingGeneric<Event_application.Tilmeld> service, Bruger bruger, BService bService)
         {
             _service = service;
             _bruger = bruger;
             _bservice = bService;
         }
-        //v�rdier som skal bruges til at hente informationen der blev skrevet af brugeren p� siden
+        //værdier som skal bruges til at hente informationen der blev skrevet af brugeren p� siden
         [BindProperty] public bool Loggedin { get; set; }
         [BindProperty] public List<int> List { get; set; }
         [BindProperty] public bool Limit { get; set; }
@@ -54,13 +54,17 @@ namespace Event_application.Pages.Arrangement
             AntalTilmeldinger = Free.Count;
             return RedirectToPage("Arrangement-index");
         }
+        public IActionResult OnPostProgram()
+        {
+            return RedirectToPage("../ArrangementProgram/ArrangementProgram");
+        }
         
         /*public IActionResult OnPostDelete()
         {
             //Vi finder brugeren i "FindId". 
             int bruger_Id = _bservice.FindId(_bruger);
             Console.WriteLine(bruger_Id);
-            //Vi sletter brugere ved hj�lp af "deleteTilmelding" der ligger i aservice.
+            //Vi sletter brugere ved hjælp af "deleteTilmelding" der ligger i aservice.
             _service.deleteTilmelding(bruger_Id);
 
             return RedirectToPage("Arrangement-index");

@@ -34,7 +34,7 @@ namespace Event_application.User
                 return Page();
             }
         }
-        public IActionResult OnPost()
+        public IActionResult OnPostLogin()
         {
             //"Login" metode bruges med username og password'et som brugeren har angivet på siden
             bservice.Login(username, password);
@@ -46,6 +46,10 @@ namespace Event_application.User
             {
                 return Page();
             }
+        }
+        public IActionResult OnPostNy()
+        {
+            return RedirectToPage("NyBruger");
         }
     }
 }

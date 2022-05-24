@@ -96,8 +96,7 @@ namespace Event_application.Services
             int i = reader.GetInt32(0);
             return i;
         }
-
-       
+        
         //Denne metode opretter en ny arrangement bestilling.
         public int PostBrugerTilArrangement(Tilmeld postTilmeld)
         {

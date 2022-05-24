@@ -51,9 +51,11 @@ namespace Event_application.Services
                 //while statement som kører så længe "reader" ikke er læst helt igennem
                 while (reader.Read())
                 {
-                    //"ReadBruger" metode bruges, som putter databasens oplysninger ind i et bruger objekt
+                    //"ReadBruger" metode bruges, som putter databasens oplysninger
+                    //ind i et bruger objekt
                     Bruger bruger = ReadBruger(reader);
-                    //hvis bruger objektet har de samme værdier hos Brugernavn og Adgangskode som det der blev indtastet ved login,
+                    //hvis bruger objektet har de samme værdier hos Brugernavn og
+                    //Adgangskode som det der blev indtastet ved login,
                     //sættes oplysninger fra bruger ind til singleton bruger objektet
                     if (bruger.Brugernavn == Username && bruger.Adgangskode == Password)
                     {

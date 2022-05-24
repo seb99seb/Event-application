@@ -59,8 +59,6 @@ namespace Event_application.Services
 #endregion
         private const string connectionString = "Server=tcp:eventzealand.database.windows.net,1433;Initial Catalog=Event;Persist Security Info=False;User ID=sovs;Password=password1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-        private List<Parkering> _list;
-
         public List<VIP> GetAll()
         {
             List<VIP> list = new List<VIP>();
