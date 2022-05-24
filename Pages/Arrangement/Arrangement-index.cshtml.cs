@@ -35,26 +35,6 @@ namespace Event_application.Pages.Arrangement
 
         public IActionResult OnGet()
         {
-            //Vi henter en liste over alle brugerer i databasen, som vi s� t�ller.
-            List<int> List = _service.GetAllId();
-            int j = List.Count();
-
-            //Vi matcher listen med "Findid" - For at se om brugeren er logged in.
-            int var = _bservice.FindId(_bruger);
-            foreach (int i in List)
-            {
-                //Hvis det er et match k�rer vi processen.
-                if (i == var)
-                {
-                    Signed = true;
-                }
-            }
-            //Vi henter alle informationer fra databasen, og tilf�jer dem til en liste "Alist".
-            List<Event_application.Tilmeld> Alist = _service.GetAll();
-            List<Event_application.Tilmeld> Free = Alist.ToList();
-            //Vi t�ller listen med "Antaltilmeldinger" for at se hvor mange der har tilmeldt sig begivenheden.
-            AntalTilmeldinger = Free.Count;
-            Loggedin = _bruger.LoggedIn;
             return Page();
         }
         public IActionResult OnPostTilmeld()
