@@ -125,7 +125,6 @@ namespace Event_application.Services
 
             return p;
         }
-
         private VIP ReadVIP(SqlDataReader reader)
         {
             VIP pp = new VIP();
