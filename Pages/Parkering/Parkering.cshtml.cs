@@ -30,6 +30,8 @@ namespace Event_application.Pages.Parkering
 
         public IActionResult OnGet()
         {
+            System.Diagnostics.Debug.WriteLine("hi! i was called upon OnGet");
+
             List<int> List = _service.GetAllId();
             int j = List.Count();
             if (j == 90){
@@ -49,8 +51,9 @@ namespace Event_application.Pages.Parkering
             Loggedin = _bruger.LoggedIn;
             return Page();
         }
-        public IActionResult OnPost()
+        public IActionResult OnPostBook()
         {
+            
             List<Event_application.Parkering> Plist = _service.GetAll();
             List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
             if (Free.Count > 0)
@@ -63,6 +66,23 @@ namespace Event_application.Pages.Parkering
             antalfrieppladser = Free.Count;
             return RedirectToPage("Parkering");
         }
+        public IActionResult OnPostDelete(int id)
+        {
+            
+            List<Event_application.Parkering> Plist = _service.GetAll();
+            List<Event_application.Parkering> Free = Plist.Where(p => p.BrugerID == -1).ToList();
+            //Vi finder brugeren i "FindId". 
+            int bruger_Id = _bservice.FindId(_bruger);
+            Console.WriteLine(bruger_Id);
+            //Vi sletter brugere ved hjælp af "deleteBooking" der ligger i pservice.
+            _service.deleteBooking(bruger_Id);
+
+            //Vi tilføjer 1 til listen, eftersom en booking er blevet slettet.
+            antalfrieppladser = Free.Count + 1;
+
         
+            
+            return RedirectToPage("Parkering");
+        }
     }
 }

@@ -26,10 +26,15 @@
             @if (Model.Signed)
             {
                 <a>Du har alleredet Booket en parkeringsplads</a>
+                
+            <input type="submit"  value="Aflys Booking" onclick="return confirm('Er du sikker på at du vil aflyse din booking?')" class="btn btn-danger" asp-page-handler="Delete">
+        
             }
             else if (Model.Loggedin && Model.Limit == false)
             {
-                <input type="submit" value="Book" class="btn btn-primary" />
+                
+                <input type="submit" value="Book" class="btn btn-primary" asp-page-handler="Book" >
+                
             }
             else
             {

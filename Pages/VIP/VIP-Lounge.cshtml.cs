@@ -37,5 +37,17 @@ namespace Event_application.Pages.VIP
             }
             return Page();
         }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            //Vi finder brugeren i "FindId". 
+            int bruger_Id = _bservice.FindId(_bruger);
+            Console.WriteLine(bruger_Id);
+
+            //Vi sletter brugere ved hjælp af "deleteTilmelding" der ligger i aservice.
+            _service.deleteOrdre(bruger_Id);
+
+            return RedirectToPage("VIP-Lounge");
+        }
     }
 }

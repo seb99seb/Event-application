@@ -138,11 +138,28 @@ namespace Event_application.Services
             }
             
         }
-
-             /*  public int deleteTilmelding(int Bestilling_id)
+        public Tilmeld GetbyID(int id)
         {
-            string sqlstring = $"delete from Arrangementet where Bestilling_id={Bestilling_id}";
-            Tilmeld Delete = GetbyID(Bestilling_id);
+            Tilmeld a = new Tilmeld();
+            string querystring = $"select * from Arrangementet where Bruger_id = {id}";
+            using (SqlConnection connection = new SqlConnection(connectionString)) 
+                    {
+                SqlCommand command = new SqlCommand(querystring, connection);
+                command.Connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    a = ReadTilmelding(reader);
+                    return a;
+                }
+            }
+            return a;
+        }
+
+        public int deleteTilmelding(int Bruger_id)
+        {
+            string sqlstring = $"delete from Arrangementet where Bruger_id = {Bruger_id}";
+            Tilmeld Delete = GetbyID(Bruger_id);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlstring, connection);
@@ -158,11 +175,11 @@ namespace Event_application.Services
 
         }
        
-        */
+        
         //En boolean der tjekker om brugeren allerede findes baseret på bruger_id.
         public Boolean CheckOmBrugerFindes(int Bruger_id)
         {
-            //Vi selecter alt fra ARrangementet hvor bruger id = bruger id, så vi tjekker om brugeren findes.
+            //Vi selecter alt fra Arrangementet hvor bruger id = bruger id, så vi tjekker om brugeren findes.
             string sqlstring = $"Select * from Arrangementet WHERE Bruger_id={Bruger_id}";
             //Using statement der bruger vores connectionstring til at oprette forbindele til vores Azure Database
             using (SqlConnection connection = new SqlConnection(connectionString))

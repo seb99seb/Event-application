@@ -49,9 +49,10 @@ namespace Event_application.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        T Delete(int id);
+        int deleteBooking(int Parkering_id);
+       
 
-        
+
 
     }
 }

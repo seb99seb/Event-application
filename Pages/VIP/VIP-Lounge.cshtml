@@ -41,6 +41,9 @@
 @if (Model.Signed)
 {
     <a>Du har alleredet tilkøbt en plads i VIP-loungen</a>
+    <form method="post" asp-page-handler="Delete">
+            <input type="submit" onclick="return confirm('Er du sikker på at du vil annullere din ordre?')" value="Aflys" class="btn btn-danger" />
+        </form>
 }
 else if (Model.Loggedin)
 {
