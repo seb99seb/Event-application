@@ -5,12 +5,24 @@
 
 <form method="post" asp-page-handler="Login">
     <div class="form-group">
+        <a>Brugernavn:</a>
+        <br />
         <input type="text" asp-for="username" placeholder="Brugernavn" />
     </div>
     <div class="form-group">
+        <a>Adgangskode:</a>
+        <br />
         <input type="text" asp-for="password" placeholder="Adgangskode" />
     </div>
     <div class="form-group">
+        @if (Model.IsNull)
+            {
+                <p>Du mangler at udfylde et felt</p>
+            }
+        else if (Model.Invalid)
+            {
+                <p>Dit login var forkert. Tjek om felterne blev fyldt rigtigt ud</p>
+            }
         <input type="submit" value="Log in" />
     </div>
 </form>
