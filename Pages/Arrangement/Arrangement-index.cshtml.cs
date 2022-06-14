@@ -94,6 +94,10 @@ namespace Event_application.Pages.Arrangement
 
             return RedirectToPage("Arrangement-index");
         }
+        public IActionResult OnPostProgram()
+        {
+            return RedirectToPage("ArrangementProgram");
+        }
         
     }
         
