@@ -69,7 +69,7 @@ namespace Event_application.Services
         public Parkering GetbyId(int id)
         {
             Parkering p = new Parkering();
-            string queryString = $"select * from Parkering where Id = {id}";
+            string queryString = $"select * from Parkering where Bruger_id = {id}";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
@@ -146,31 +146,30 @@ namespace Event_application.Services
         /// </summary>
         /// <param name="id">Vores Delete id</param>
         /// <returns>Delete</returns>
-        public Parkering Delete(int id)
+        public int deleteBooking(int Bruger_id)
         {
-            string sqlString = $"delete from Parkering Where Id = {id}";
-            Parkering Delete = GetbyId(id);
+            
+            string sqlString = $"UPDATE Parkering SET Bruger_id = NULL Where Bruger_id = {Bruger_id}";
+            Parkering Delete = GetbyId(Bruger_id);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlString, connection);
                 command.Connection.Open();
                 command.ExecuteNonQuery();
-                connection.Close();
 
                 int rows = command.ExecuteNonQuery();
 
-                if (rows != 1)
-                {
-                    throw new Exception("dab");
-                }
 
-
+                
             }
-
-            return Delete;
+            return 0;
 
         }
-    }
+
+
+
+        }
+    
 
 
 }

@@ -11,8 +11,9 @@ namespace Event_application.Services
     {
         List<T> GetAll();
         List<int> GetAllId();
-       // int deleteTilmelding(int Bestilling_id);
+        int deleteTilmelding(int Bestilling_id);
         int PostBrugerTilArrangement(T Tilmeld);
+        T GetbyID (int Bestilling_id);  
 
 
     }

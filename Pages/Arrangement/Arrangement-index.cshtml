@@ -22,10 +22,12 @@
         <input type="submit" value="Arrangementets program" class="btn btn-primary" />
     </form>
 
+
     <a>Tilmeldingsoversigt</a>
     <br />
+    <p>Vi har kun plads til 500, så skynd dig at tilmelde dig!</p>
 
-    <p>Antal tilmeldinger:  @Model.AntalTilmeldinger</p>
+    <p>Antal tilmeldinger:  @Model.AntalTilmeldinger/500</p>
 
 
     <p> Her kan du tilmelde dig begivenheden</p>
@@ -33,12 +35,12 @@
     @if (Model.Signed)
     {
         <a>Du er allerede tilmeldt begivenheden</a>
-        <!--
-            <form method="post" asp-page-handler="Delete">
-        <input type="submit" onPost="OnPostDelete" value="Aflys Tilmelding" class="btn btn-danger" />
-                 </form>
-
-        -->
+       
+         <form method="post" asp-page-handler="Delete">
+            <input type="submit" onclick="return confirm('Er du sikker på at du vil aflyse din booking?')" value="Aflys" class="btn btn-danger" />
+        </form>
+        
+        
 
     }
     else if (Model.Loggedin && Model.Limit == false)
@@ -46,10 +48,15 @@
         <form method="post" asp-page-handler="Tilmeld">
             <input type="submit" value="Tilmeld" class="btn btn-primary" />
         </form>
+        
+        
     }
     else
     {
         <a>Du skal logge ind for at kunne tilmelde dig begivenheden</a>
     }
+    
+    
+   
 
 </div>

@@ -22,6 +22,8 @@ namespace Event_application.User
         //værdier som skal bruges til at hente informationen der blev skrevet af brugeren på siden
         [BindProperty] public string username { get; set; }
         [BindProperty] public string password { get; set; }
+        [BindProperty] public bool IsNull { get; set; }
+        [BindProperty] public bool Invalid { get; set; }
         public IActionResult OnGet()
         {
             //if statement bestemmer om brugeren for lov til at bruge denne side, eller om de videresendes til "LoginMenu"
@@ -42,8 +44,14 @@ namespace Event_application.User
             {
                 return RedirectToPage("LoginMenu");
             }
+            else if (username == null || password == null)
+            {
+                IsNull = true;
+                return Page();
+            }
             else
             {
+                Invalid = true;
                 return Page();
             }
         }

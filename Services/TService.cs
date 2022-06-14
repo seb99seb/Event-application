@@ -108,7 +108,7 @@ namespace Event_application.Services
         public VIP GetbyId(int id)
         {
             VIP p = new VIP();
-            string queryString = $"select * from VIP where Id = {id}";
+            string queryString = $"select * from VIP where Bruger_id = {id}";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
@@ -153,5 +153,25 @@ namespace Event_application.Services
                 command.ExecuteReader();
             }
         }
+        public int deleteOrdre(int Bruger_id)
+        {
+            string sqlstring = $"delete from VIP where Bruger_id = {Bruger_id}";
+            VIP Delete = GetbyId(Bruger_id);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlstring, connection);
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+
+                int rows = command.ExecuteNonQuery();
+
+
+
+            }
+            return 0;
+
+        }
+
     }
-}
+    }
+
